@@ -79,7 +79,54 @@
     }
 
     let grid = [];
-    const nodes = 4;
+    const nodes = 5;
+
+    for (let i = 0; i < nodes; i++) {
+        let row = [];
+        for (let j = 0; j < nodes; j++) {
+            row.push(getRandom2DUnitVector());
+        }
+        grid.push(row);
+    }
+
+    function dotProduct(nodeX, nodeY, candidateX, candidateY) {
+        let nodeVec = grid[nodeX][nodeY];
+        let candidateVec = {x: candidateX-nodeX, y: candidateY-nodeY}
+        return (nodeVec.x * candidateVec.x) + (nodeVec.y * candidateVec.y)
+    }
+
+    function interpolate(x, a, b) {
+        // Smoother step interpolation
+        x = 6*x**5 - 15*x**4 + 10*x**3;
+        return (a + (x * (a-b)));
+    }
+
+
+    function getPerlin(x, y) {
+        let x0 = Math.floor(x);
+        let x1 = x0+1;
+        let y0 = Math.floor(y);
+        let y1 = y0+1;
+
+        let nodeA = dotProduct(x0, y0, x, y);
+        let nodeB = dotProduct(x0, y1, x, y);
+        let nodeC = dotProduct(x1, y0, x, y);
+        let nodeD = dotProduct(x1, y1, x, y);
+
+        let xWeight = x - x0;
+        let yWeight = y - y0;
+
+        let intensity = interpolate(yWeight, interpolate(xWeight, nodeA, nodeC), interpolate(xWeight, nodeB, nodeD));
+        // intensity *= 5;
+
+        return intensity;
+    }
+
+    for (let i = 0; i < nodes; i += 0.1) {
+        console.log(getPerlin(i, 0))
+    }
+
+
 </script>
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
