@@ -70,8 +70,8 @@
 
     <!-- End page content -->
 </div>
-
 <script>
+
     // Returns a random vector with unit length 1.
     function getRandom2DUnitVector() {
         let theta = Math.random() * 2 * Math.PI;
@@ -90,15 +90,21 @@
     }
 
     function dotProduct(nodeX, nodeY, candidateX, candidateY) {
-        let nodeVec = grid[nodeX][nodeY];
-        let candidateVec = {x: candidateX-nodeX, y: candidateY-nodeY}
-        return (nodeVec.x * candidateVec.x) + (nodeVec.y * candidateVec.y)
+        try {
+            let nodeVec = grid[nodeX][nodeY];
+            let candidateVec = {x: candidateX-nodeX, y: candidateY-nodeY}
+            return (nodeVec.x * candidateVec.x) + (nodeVec.y * candidateVec.y)
+        } catch (e) {
+            console.log(nodeX, nodeY, candidateX, candidateY);
+            console.log("RETURNING 0")
+            return 0;
+        }
     }
 
     function interpolate(x, a, b) {
         // Smoother step interpolation
         x = 6*x**5 - 15*x**4 + 10*x**3;
-        return (a + (x * (a-b)));
+        return (a + (x * (b-a)));
     }
 
 
@@ -108,23 +114,29 @@
         let y0 = Math.floor(y);
         let y1 = y0+1;
 
-        let nodeA = dotProduct(x0, y0, x, y);
-        let nodeB = dotProduct(x0, y1, x, y);
-        let nodeC = dotProduct(x1, y0, x, y);
-        let nodeD = dotProduct(x1, y1, x, y);
+        let topLeft = dotProduct(x0, y1, x, y);
+        let topRight = dotProduct(x1, y1, x, y);
+        let botLeft = dotProduct(x0, y0, x, y);
+        let botRight = dotProduct(x1, y0, x, y);
 
         let xWeight = x - x0;
         let yWeight = y - y0;
 
-        let intensity = interpolate(yWeight, interpolate(xWeight, nodeA, nodeC), interpolate(xWeight, nodeB, nodeD));
-        // intensity *= 5;
+        let left = interpolate(yWeight, botLeft, botRight);
+        let right = interpolate(yWeight, botRight, topRight);
+
+        let intensity = interpolate(xWeight, left, right);
 
         return intensity;
     }
 
-    for (let i = 0; i < nodes; i += 0.1) {
-        console.log(getPerlin(i, 0))
+    let string = "";
+    console.log("nodes: " + nodes)
+    for (let x = 0; x < nodes-1; x+=0.1) {
+        string += "(" + x + "," + getPerlin(x, 0) + "),"
     }
+    console.log(string);
+
 
 
 </script>
