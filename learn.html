@@ -71,6 +71,16 @@
     <!-- End page content -->
 </div>
 
+<script>
+    // Returns a random vector with unit length 1.
+    function getRandom2DUnitVector() {
+        let theta = Math.random() * 2 * Math.PI;
+        return {x: Math.cos(theta), y: Math.sin(theta)}
+    }
+
+    let grid = [];
+    const nodes = 4;
+</script>
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
     <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
