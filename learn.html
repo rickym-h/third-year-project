@@ -73,6 +73,29 @@
 <script src="Perlin.js"></script>
 <canvas id='demo-canvas'></canvas>
 <script>
+
+    function getColour(value) {
+        let SAND_THRESHOLD = 0
+        let GRASS_THRESHOLD = 30
+        let FOREST_THRESHOLD = 100
+        let ROCK_THRESHOLD = 120
+        let SNOW_THRESHOLD = 150
+        if (value < SAND_THRESHOLD) {
+            return "#11ADC1"
+        } else if (value < GRASS_THRESHOLD) {
+            return "#F7B69E"
+        } else if (value < FOREST_THRESHOLD) {
+            return "#5BB361"
+        } else if (value < ROCK_THRESHOLD) {
+            return "#1E8875"
+        } else if (value < SNOW_THRESHOLD){
+            return "#606C81"
+        } else {
+            return "#FFFFFF"
+        }
+    }
+
+
     'use strict';
     let canvas = document.getElementById('demo-canvas');
     canvas.width = canvas.height = 512;
