@@ -49,11 +49,12 @@ let perlin = {
         // Get the corners of the coordinate
         let xf = Math.floor(x);
         let yf = Math.floor(y);
-        // interpolate between these corners.
+        // interpolate between these corners. (tl = top left, br = bottom right etc)
         let tl = this.dot_prod_grid(x, y, xf,   yf);
         let tr = this.dot_prod_grid(x, y, xf+1, yf);
         let bl = this.dot_prod_grid(x, y, xf,   yf+1);
         let br = this.dot_prod_grid(x, y, xf+1, yf+1);
+
         let xt = this.interpolate(x-xf, tl, tr);
         let xb = this.interpolate(x-xf, bl, br);
         let v = this.interpolate(y-yf, xt, xb);

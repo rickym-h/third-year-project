@@ -58,11 +58,10 @@
   <div class="w3-container" id="about">
     <div class="w3-content" style="max-width:700px">
       <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">WHAT IS PERLIN NOISE?</span></h5>
-      <p>CREATED MY KEN PERLIN ETC</p>
-      <p>Perlin noise is an algorithm to generate deterministic gradient noise. Since it is deterministic, it can be seeded to generate the same values with the same inputs, meaning it is predictable. Gradient noise as a type of noise which is created by interpolating between gradients.</p>
-      <p>At a very high level, it allows us to generate random numbers which are close to nearby randomly generated values, rather than simply completely random. This can be useful for things like creating more realistic textures for clouds or wood in computer graphics.</p>
-      <p>It can generate values in any number of dimensions but its most commonly implemented in two, three, or four dimensions.</p>
-      <p>The complexity of the algorithm is O(2n) where n is the number of dimensions.</p>
+      <p>Perlin Noise is essentially an algorithm to generate lots of random numbers which are close together - to form a gradient of sorts. You’ve probably seen a gradient before, maybe in a Powerpoint slide or as the background of a webpage; it’s basically something that transitions between two colours.</p>
+      <p>We call this gradient ‘noise’, and it can affect our data in ways which seem organic. The numbers by themselves might look a little meaningless and useless, but we can apply these numbers to do many interesting things, such as procedurally creating patterned textures for materials like marble, or creating clouds, or for creating entire landscapes!</p>
+      <p>This website will walk you through the process of creating this Perlin Noise to use yourself for your own projects, with the primary example of creating the heightmap for some terrain.</p>
+      <p>LEARN</p>
 <!--      <div class="w3-panel w3-leftbar w3-light-grey">-->
 <!--        <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>-->
 <!--        <p>Chef, Coffeeist and Owner: Liam Brown</p>-->
@@ -80,6 +79,16 @@
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
   <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
 </footer>
+
+<script>
+  let output = "";
+  for (let i = 0; i < 1; i+=0.02) {
+    let theta = 2 * i * Math.PI;
+    output+=("("+Math.cos(theta)+","+ Math.sin(theta)+")"+"\n")
+    console.log("("+Math.cos(theta)+","+ Math.sin(theta)+")")
+  }
+  console.log(output)
+</script>
 
 
 </body>
