@@ -23,8 +23,8 @@
         /*  display: none;*/
         /*}*/
     </style>
-    <script src="Perlin.js" defer></script>
-    <script src="learn_js.js" defer></script>
+    <script src="Perlin.js"></script>
+    <script src="learn_js.js"></script>
 </head>
 <body>
 
@@ -110,27 +110,28 @@
 
             <div style="background-color: #00bcd4; width: 100%; display: flex; flex-direction: column; align-items: center">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" value="1" class="slider" id="myRange">
+                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange">
                     <p>Octave: <span id="demo"></span></p>
                 </div>
                 <button id="GenerateHeightmapButton">Generate Heightmap</button>
-                <script>
-                    var slider = document.getElementById("myRange");
-                    var output = document.getElementById("demo");
-                    output.innerHTML = slider.value;
-
-                    slider.oninput = function() {
-                        output.innerHTML = this.value;
-                    }
-                    let button = document.getElementById("GenerateHeightmapButton");
-                    button.addEventListener("click", function(){
-                        console.log("CLICKED")
-                        FillCanvasWithHeightMap("demo-canvas", 4, 64, slider.value)
-                    })
-
-                </script>
             </div>
             <canvas id='demo-canvas' width="512" height="512"></canvas>
+            <script>
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("demo");
+                output.innerHTML = slider.value;
+
+                slider.oninput = function() {
+                    output.innerHTML = this.value;
+                }
+                let button = document.getElementById("GenerateHeightmapButton");
+                button.addEventListener("click", function(){
+                    console.log("CLICKED")
+                    FillCanvasWithHeightMap("demo-canvas", 4, 64, slider.value)
+                })
+                FillCanvasWithHeightMap("demo-canvas", 4, 64, slider.value)
+
+            </script>
 
 
         </div>
