@@ -85,3 +85,27 @@ let perlin = {
     }
 }
 perlin.seed();
+
+function getColour(value) {
+    // if ((value < 5) && (value > -5)) {
+    //     return "#00ff00"
+    // }
+    let SAND_THRESHOLD = 0
+    let GRASS_THRESHOLD = 30
+    let FOREST_THRESHOLD = 90
+    let ROCK_THRESHOLD = 130
+    let SNOW_THRESHOLD = 150
+    if (value < SAND_THRESHOLD) {
+        return "#11ADC1"
+    } else if (value < GRASS_THRESHOLD) {
+        return "#F7B69E"
+    } else if (value < FOREST_THRESHOLD) {
+        return "#5BB361"
+    } else if (value < ROCK_THRESHOLD) {
+        return "#1E8875"
+    } else if (value < SNOW_THRESHOLD){
+        return "#606C81"
+    } else {
+        return "#FFFFFF"
+    }
+}
