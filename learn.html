@@ -4,8 +4,9 @@
     <title>Learn</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="w3styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="CanvasStyleSheet.css">
     <style>
         body, html {
             height: 100%;
@@ -23,6 +24,8 @@
         /*  display: none;*/
         /*}*/
     </style>
+    <script src="Perlin.js" defer></script>
+    <script src="learn_js.js" defer></script>
 </head>
 <body>
 
@@ -47,8 +50,9 @@
 
 
 <!-- Add a background color and large text to the whole page -->
-<div class="w3-sand w3-grayscale w3-large">
 
+<div class="w3-sand w3-grayscale w3-large">
+    <canvas id='demo-canvas'></canvas>
     <!-- About Container -->
     <div class="w3-container" id="about">
         <div class="w3-content" style="max-width:700px">
@@ -111,43 +115,6 @@
 
     <!-- End page content -->
 </div>
-<script src="Perlin.js"></script>
-<canvas id='demo-canvas'></canvas>
-<script>
-
-
-    'use strict';
-    let canvas = document.getElementById('demo-canvas');
-    canvas.width = canvas.height = 1024;
-    let context = canvas.getContext('2d');
-
-    const GRID_SIZE = 8;
-    const PIXELS_PER_GRID_CELL = 64;
-    const HSL_MULTIPLIER = 300;
-
-    let pixel_size = canvas.width / PIXELS_PER_GRID_CELL;
-    let num_pixels = GRID_SIZE / PIXELS_PER_GRID_CELL;
-
-    // Colour each pixel according to the perlin values
-    for (let y = 0; y < GRID_SIZE; y += num_pixels / GRID_SIZE){
-        for (let x = 0; x < GRID_SIZE; x += num_pixels / GRID_SIZE){
-            // If the pixel is on a grid line - set as red, otherwise get the map colour from perlin.
-            if ((x % 1 === 0) || (y % 1 === 0)) {
-                context.fillStyle = "#ff0000";
-            } else {
-                let v = Math.round(perlin.get(x, y, 5) * HSL_MULTIPLIER);
-                context.fillStyle = getColour(v);
-            }
-            // Colour in the pixel at the given x and y as the colour found above
-            context.fillRect(
-                x / GRID_SIZE * canvas.width,
-                y / GRID_SIZE * canvas.width,
-                pixel_size,
-                pixel_size
-            );
-        }
-    }
-</script>
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
     <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
