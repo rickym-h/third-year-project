@@ -105,8 +105,32 @@
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Fractal Noise</span></h5>
             <p></p>
             <p></p>
-            <div></div>
-            <canvas id='demo-canvas'></canvas>
+
+
+
+            <div style="background-color: #00bcd4; width: 100%; display: flex; flex-direction: column; align-items: center">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" value="1" class="slider" id="myRange">
+                    <p>Octave: <span id="demo"></span></p>
+                </div>
+                <button id="GenerateHeightmapButton">Generate Heightmap</button>
+                <script>
+                    var slider = document.getElementById("myRange");
+                    var output = document.getElementById("demo");
+                    output.innerHTML = slider.value;
+
+                    slider.oninput = function() {
+                        output.innerHTML = this.value;
+                    }
+                    let button = document.getElementById("GenerateHeightmapButton");
+                    button.addEventListener("click", function(){
+                        console.log("CLICKED")
+                        FillCanvasWithHeightMap("demo-canvas", 4, 64, slider.value)
+                    })
+
+                </script>
+            </div>
+            <canvas id='demo-canvas' width="512" height="512"></canvas>
 
 
         </div>
