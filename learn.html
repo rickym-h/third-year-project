@@ -23,8 +23,9 @@
         /*  display: none;*/
         /*}*/
     </style>
-    <script src="Perlin.js"></script>
-    <script src="learn_js.js"></script>
+    <script src="Perlin.js" defer></script>
+    <script src="DemoHelperFunctions.js" defer></script>
+    <script src="SetupLearnDemos.js" defer></script>
 </head>
 <body>
 
@@ -108,30 +109,24 @@
 
 
 
-            <div style="background-color: #00bcd4; width: 100%; display: flex; flex-direction: column; align-items: center">
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange">
-                    <p>Octave: <span id="demo"></span></p>
+            <div class="optionContainer">
+                <div class="optionSlider">
+                    <label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label>
+                    <input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider">
                 </div>
-                <button id="GenerateHeightmapButton">Generate Heightmap</button>
+                <div class="optionSlider">
+                    <label for="demo_final:CellCountSlider" class="optionLegend">Cell Count: <span id="demo_final:CellCountValue"></span></label>
+                    <input type="range" min="1" max="8" value="4" class="slider" id="demo_final:CellCountSlider">
+                </div>
+                <div class="optionSlider">
+                    <label for="demo_final:CellResSlider" class="optionLegend">Cell Resolution: <span id="demo_final:CellResValue"></span></label>
+                    <input type="range" min="1" max="7" value="5" class="slider" id="demo_final:CellResSlider">
+                </div>
+
+
+                <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
             </div>
-            <canvas id='demo-canvas' width="512" height="512"></canvas>
-            <script>
-                var slider = document.getElementById("myRange");
-                var output = document.getElementById("demo");
-                output.innerHTML = slider.value;
-
-                slider.oninput = function() {
-                    output.innerHTML = this.value;
-                }
-                let button = document.getElementById("GenerateHeightmapButton");
-                button.addEventListener("click", function(){
-                    console.log("CLICKED")
-                    FillCanvasWithHeightMap("demo-canvas", 4, 64, slider.value)
-                })
-                FillCanvasWithHeightMap("demo-canvas", 4, 64, slider.value)
-
-            </script>
+            <canvas id='demo_final' width="512" height="512"></canvas>
 
 
         </div>

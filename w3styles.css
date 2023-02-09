@@ -242,9 +242,29 @@ canvas {
     display: block;
 }
 
-.slidecontainer {
+.optionContainer {
+    background-color: #00bcd4;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
 }
+
+.optionSlider {
+    width: 100%;
+    display: flex;
+    border: 1px solid green;
+    flex-direction: row;
+    align-items: center;
+}
+
+.optionLegend {
+    display: flex;
+    border: 1px solid red;
+    flex-direction: row;
+}
+
+
 
 .slider {
     -webkit-appearance: none;
