@@ -26,7 +26,7 @@ function getColour(value) {
     }
 }
 
-function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCount) {
+function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCount, ShowGrid=true) {
     perlin.seed()
     let canvas = document.getElementById(canvasID);
     let context = canvas.getContext('2d');
@@ -42,7 +42,7 @@ function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCo
     for (let y = 0; y < GRID_SIZE; y += num_pixels / GRID_SIZE){
         for (let x = 0; x < GRID_SIZE; x += num_pixels / GRID_SIZE){
             // If the pixel is on a grid line - set as red, otherwise get the map colour from perlin.
-            if ((x % 1 === 0) || (y % 1 === 0)) {
+            if (ShowGrid && ((x % 1 === 0) || (y % 1 === 0))) {
                 context.fillStyle = "#ff0000";
             } else {
                 let v = Math.round(perlin.get(x, y, OctaveCount) * HSL_MULTIPLIER);
