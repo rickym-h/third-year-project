@@ -109,27 +109,32 @@
 
 
 
-            <div class="optionContainer">
-                <div class="optionSlider">
-                    <label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label>
-                    <input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider">
-                </div>
-                <div class="optionSlider">
-                    <label for="demo_final:CellCountSlider" class="optionLegend">Cell Count: <span id="demo_final:CellCountValue"></span></label>
-                    <input type="range" min="1" max="8" value="4" class="slider" id="demo_final:CellCountSlider">
-                </div>
-                <div class="optionSlider">
-                    <label for="demo_final:CellResSlider" class="optionLegend">Cell Resolution: <span id="demo_final:CellResValue"></span></label>
-                    <input type="range" min="1" max="7" value="5" class="slider" id="demo_final:CellResSlider">
-                </div>
-                <div class="optionSlider">
-                    <label for="demo_final_ShowGrid" class="optionLegend">Show Grid: <span id="demo_final:ShowGridValue"></span></label>
-                    <input type="checkbox" checked id="demo_final_ShowGrid">
-                </div>
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <td><label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label></td>-->
+<!--                    <td><input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider"></td>-->
+<!--                </tr>-->
+<!--            </table>-->
 
-
-                <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
-            </div>
+            <table class="optionContainer">
+                <tr class="optionSlider">
+                    <td><label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label></td>
+                    <td><input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider"></td>
+                </tr>
+                <tr class="optionSlider">
+                    <td><label for="demo_final:CellCountSlider" class="optionLegend">Cell Count: <span id="demo_final:CellCountValue"></span></label></td>
+                    <td><input type="range" min="1" max="8" value="4" class="slider" id="demo_final:CellCountSlider"></td>
+                </tr>
+                <tr class="optionSlider">
+                    <td><label for="demo_final:CellResSlider" class="optionLegend">Cell Resolution: <span id="demo_final:CellResValue"></span></label></td>
+                    <td><input type="range" min="1" max="7" value="5" class="slider" id="demo_final:CellResSlider"></td>
+                </tr>
+                <tr class="optionSlider">
+                    <td><label for="demo_final_ShowGrid" class="optionLegend">Show Grid: <span id="demo_final:ShowGridValue"></span></label></td>
+                    <td><input type="checkbox" checked id="demo_final_ShowGrid"></td>
+                </tr>
+            </table>
+            <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
             <canvas id='demo_final' width="512" height="512"></canvas>
 
 
