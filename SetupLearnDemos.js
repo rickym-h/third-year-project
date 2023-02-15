@@ -23,11 +23,6 @@ demo_final_CellResSlider.oninput = function () {
     demo_final_CellResValue.innerHTML = Math.pow(2, parseInt(this.value)+1).toString();
 }
 
-
-
-
-
-
 let button = document.getElementById("demo_final:GenerateHeightMap");
 button.addEventListener("click", function () {
     let ShowGrid = document.querySelector("#demo_final_ShowGrid").checked;
@@ -35,3 +30,10 @@ button.addEventListener("click", function () {
 })
 let ShowGrid = document.querySelector("#demo_final_ShowGrid").checked;
 FillCanvasWithHeightMap("demo_final", demo_final_CellCountSlider.value, Math.pow(2, parseInt(demo_final_CellResSlider.value)+1), demo_final_OctaveSlider.value, ShowGrid)
+
+
+button = document.getElementById("demo_2DPerlin:GenerateNoise");
+button.addEventListener("click", function () {
+    FillCanvasWithNoise("demo_2DPerlin", 4,32, 1, false)
+})
+FillCanvasWithNoise("demo_2DPerlin", 4,32, 1, false)
