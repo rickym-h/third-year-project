@@ -29,7 +29,6 @@
 </head>
 <body>
 
-
 <!-- Links (sit on top) -->
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
@@ -62,7 +61,6 @@
             <p>Deterministic - Although generated through code and is seemingly random, the data can be repeatable if the starting conditions are the same. This means you can generate the same values again if you want to.</p>
             <p>Seeded - This is what actually makes the randomness deterministic. You can provide a ‘seed’ - usually a number of some kind, which will then be used to generate the noise. If the same number is used again in the future, the exact same set of numbers will be generated!</p>
             <p>Dimensions - The dimensions basically mean how many directions are the numbers  generated in? In 1-D the numbers can go left and right. In 2-D the numbers can go left, right, up and down. Perlin noise however can be applied to any number of dimensions; 3-D, 4-D, even 100-D if you wanted to!</p>
-            <p>[demo example image]</p>
 
 
             <button id="demo_2DPerlin:GenerateNoise">Generate Noise</button>
@@ -84,6 +82,9 @@
             <p>The Candidate Point Vectors are the vectors which will point at the candidate point from each of the surrounding grid points. The number of these vectors needed also depends on the number of dimensions we are generating Perlin Noise for. For example, on a 2D plane there are 4 surrounding grid vertices (forming a square surrounding the point), but in 3D space there would be 8 surrounding grid vertices (forming a cube surrounding the point).</p>
             <p>Each of these surrounding vertices has a vector created which points towards the candidate point. Now, each candidate point has 4 surrounding normalised grid vectors, and 4 surrounding candidate point vectors (in 3D this would be 8 each, in 4D it would be 16 each, in 5D space it would be 32 each etc).</p>
             <p>[demo for candidate point vectors]</p>
+
+            <button id="demo_CandidatePointVectors:PickCoord">Pick New Co-ordinate</button>
+            <canvas id='demo_CandidatePointVectors' width="512" height="512"></canvas>
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Dot Product</span></h5>
             <p>At this point for every candidate point, each surrounding grid vertex has two associated vectors; one random unit vector, and one vector which points from the vertex to the candidate point.</p>

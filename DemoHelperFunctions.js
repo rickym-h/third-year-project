@@ -81,6 +81,8 @@ function FillCanvasWithNoise(canvasID, GridSize, PixelsPerGridCell, OctaveCount,
     }
 }
 
+
+
 function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCount, ShowGrid=true) {
     perlin.seed()
     let canvas = document.getElementById(canvasID);

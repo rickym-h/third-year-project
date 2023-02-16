@@ -82,7 +82,6 @@ let perlin = {
             this.perlin_cache.set(key, v);
             TotalPerlin += v;
         }
-
         return TotalPerlin;
     }
 }
