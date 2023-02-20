@@ -83,7 +83,12 @@
             <p>Each of these surrounding vertices has a vector created which points towards the candidate point. Now, each candidate point has 4 surrounding normalised grid vectors, and 4 surrounding candidate point vectors (in 3D this would be 8 each, in 4D it would be 16 each, in 5D space it would be 32 each etc).</p>
             <p>[demo for candidate point vectors]</p>
 
-            <button id="demo_CandidatePointVectors:PickCoord">Pick New Co-ordinate</button>
+            <button id="demo_CandidatePointVectors:PickCoord">Pick New Co-ordinate (or click in the square!)</button>
+            <p>Candidate Point: <span id="demo_CandidatePointVectors:PointCoord"></span></p>
+            <p>Vector A (Top Left): <span id="demo_CandidatePointVectors:A"></span></p>
+            <p>Vector B (Top Right): <span id="demo_CandidatePointVectors:B"></span></p>
+            <p>Vector C (Bottom Left): <span id="demo_CandidatePointVectors:C"></span></p>
+            <p>Vector D (Bottom Right): <span id="demo_CandidatePointVectors:D"></span></p>
             <canvas id='demo_CandidatePointVectors' width="512" height="512"></canvas>
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Dot Product</span></h5>

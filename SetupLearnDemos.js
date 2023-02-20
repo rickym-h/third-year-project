@@ -51,10 +51,10 @@ function CPVDemoClicked(canvas, event) {
     const rect = canvas.getBoundingClientRect()
     const x = event.clientX - rect.left
     const y = event.clientY - rect.top
-    GenerateCandidateVectors(x, y);
+    GenerateCandidateVectorsAndUpdateDOM(x, y);
 }
 
-function GenerateCandidateVectors(x, y) {
+function GenerateCandidateVectorsAndUpdateDOM(x, y) {
     CPV_Context.fillStyle = "#808080";
     CPV_Context.fillRect(0, 0, CPV_Canvas.width, CPV_Canvas.height)
     CPV_Context.fillStyle = "#ff0000";
@@ -82,9 +82,45 @@ function GenerateCandidateVectors(x, y) {
     CPV_Context.lineTo(x, y);
     CPV_Context.stroke();
 
+    // Calculate the data to show to the user
+    x = Math.round(x*1000 / CPV_Canvas.width)/1000;
+    y = Math.round(y*1000 / CPV_Canvas.height)/1000;
+    let span = document.getElementById("demo_CandidatePointVectors:PointCoord");
+    span.innerHTML = "(" + x + ", " + y + ")"
+
+    // Calculate and show the vectors
+    let v1, v2;
+    // A
+    v1 = x;
+    v2 = -y;
+    span = document.getElementById("demo_CandidatePointVectors:A")
+    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+
+    // B
+    v1 = -x;
+    v2 = -y;
+    span = document.getElementById("demo_CandidatePointVectors:B")
+    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+
+    // C
+    v1 = x;
+    v2 = y;
+    span = document.getElementById("demo_CandidatePointVectors:C")
+    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+
+    // D
+    v1 = -x;
+    v2 = y;
+    span = document.getElementById("demo_CandidatePointVectors:D")
+    span.innerHTML ="(" + v1+ ", " + v2 + ")"
 }
 CPV_Canvas.addEventListener('mousedown', (e) => {
     CPVDemoClicked(CPV_Canvas, e)
 })
 
 button = document.getElementById("demo_CandidatePointVectors:PickCoord");
+button.addEventListener("click", () => {
+    let x = 512 * Math.round(Math.random() * 100)/100
+    let y = 512 * Math.round(Math.random() * 100)/100
+    GenerateCandidateVectorsAndUpdateDOM(x, y)
+})

@@ -45,8 +45,6 @@ function getIntensity(value){
     }
     return "#"+hex+hex+hex;
 }
-let foo = 0
-console.log(foo.toString(16))
 
 function FillCanvasWithNoise(canvasID, GridSize, PixelsPerGridCell, OctaveCount, ShowGrid=true) {
     perlin.seed()
