@@ -62,9 +62,11 @@
             <p>Seeded - This is what actually makes the randomness deterministic. You can provide a ‘seed’ - usually a number of some kind, which will then be used to generate the noise. If the same number is used again in the future, the exact same set of numbers will be generated!</p>
             <p>Dimensions - The dimensions basically mean how many directions are the numbers  generated in? In 1-D the numbers can go left and right. In 2-D the numbers can go left, right, up and down. Perlin noise however can be applied to any number of dimensions; 3-D, 4-D, even 100-D if you wanted to!</p>
 
+            <div class="DemoHolder">
+                <button id="demo_2DPerlin:GenerateNoise">Generate Noise</button>
+                <canvas id='demo_2DPerlin' width="512" height="512"></canvas>
+            </div>
 
-            <button id="demo_2DPerlin:GenerateNoise">Generate Noise</button>
-            <canvas id='demo_2DPerlin' width="512" height="512"></canvas>
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW DOES IT WORK?</span></h5>
 
@@ -76,6 +78,11 @@
             <p>For our example of generating a 2D heightmap, you might imagine the vectors as arrows with a length of 1, pointing in any direction in a circle (360 degrees). This grid must be a lower resolution than the final perlin noise wanted. For example if you wanted some Perlin Noise to fill a 1000x1000 grid, you might only have a 50x50 grid of vectors. This ratio would be adjusted depending on the use case.</p>
             <p>[demo for grid vectors]</p>
 
+            <div class="DemoHolder">
+                <button id="demo_GridVectors:NewGrid">Re-generate grid</button>
+                <canvas id='demo_GridVectors' width="512" height="512"></canvas>
+            </div>
+
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Candidate Point Vectors</span></h5>
             <p>The next step is to calculate vectors to what we call the candidate points. These are the actual positions of the values for perlin noise we want to generate. In some cases, it might be good to imagine the grid of vectors as a coordinate system, and each of our candidate points sits in between the coordinate grid. At each vertex of our coordinate grid there is a random normalised vector.</p>
             <p>For example our candidate point might be at (1.3, 0.4), and it is surrounded by the grid vectors at coordinates (1,0), (1,1), (2,0), (2,1). Each of these 4 grid points have an associated random unit vector from the previous step, but we won't worry about these until the next step.</p>
@@ -83,13 +90,15 @@
             <p>Each of these surrounding vertices has a vector created which points towards the candidate point. Now, each candidate point has 4 surrounding normalised grid vectors, and 4 surrounding candidate point vectors (in 3D this would be 8 each, in 4D it would be 16 each, in 5D space it would be 32 each etc).</p>
             <p>[demo for candidate point vectors]</p>
 
-            <button id="demo_CandidatePointVectors:PickCoord">Pick New Co-ordinate (or click in the square!)</button>
-            <p>Candidate Point: <span id="demo_CandidatePointVectors:PointCoord"></span></p>
-            <p>Vector A (Top Left): <span id="demo_CandidatePointVectors:A"></span></p>
-            <p>Vector B (Top Right): <span id="demo_CandidatePointVectors:B"></span></p>
-            <p>Vector C (Bottom Left): <span id="demo_CandidatePointVectors:C"></span></p>
-            <p>Vector D (Bottom Right): <span id="demo_CandidatePointVectors:D"></span></p>
-            <canvas id='demo_CandidatePointVectors' width="512" height="512"></canvas>
+            <div class="DemoHolder">
+                <button id="demo_CandidatePointVectors:PickCoord">Pick New Co-ordinate (or click in the square!)</button>
+                <p>Candidate Point: <span id="demo_CandidatePointVectors:PointCoord"></span></p>
+                <p>Vector A (Top Left): <span id="demo_CandidatePointVectors:A"></span></p>
+                <p>Vector B (Top Right): <span id="demo_CandidatePointVectors:B"></span></p>
+                <p>Vector C (Bottom Left): <span id="demo_CandidatePointVectors:C"></span></p>
+                <p>Vector D (Bottom Right): <span id="demo_CandidatePointVectors:D"></span></p>
+                <canvas id='demo_CandidatePointVectors' width="512" height="512"></canvas>
+            </div>
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Dot Product</span></h5>
             <p>At this point for every candidate point, each surrounding grid vertex has two associated vectors; one random unit vector, and one vector which points from the vertex to the candidate point.</p>
@@ -119,26 +128,28 @@
 
 
 
-            <table class="optionContainer">
-                <tr class="optionSlider">
-                    <td><label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label></td>
-                    <td><input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider"></td>
-                </tr>
-                <tr class="optionSlider">
-                    <td><label for="demo_final:CellCountSlider" class="optionLegend">Cell Count: <span id="demo_final:CellCountValue"></span></label></td>
-                    <td><input type="range" min="1" max="8" value="4" class="slider" id="demo_final:CellCountSlider"></td>
-                </tr>
-                <tr class="optionSlider">
-                    <td><label for="demo_final:CellResSlider" class="optionLegend">Cell Resolution: <span id="demo_final:CellResValue"></span></label></td>
-                    <td><input type="range" min="1" max="7" value="5" class="slider" id="demo_final:CellResSlider"></td>
-                </tr>
-                <tr class="optionSlider">
-                    <td><label for="demo_final_ShowGrid" class="optionLegend">Show Grid: <span id="demo_final:ShowGridValue"></span></label></td>
-                    <td><input type="checkbox" checked id="demo_final_ShowGrid"></td>
-                </tr>
-            </table>
-            <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
-            <canvas id='demo_final' width="512" height="512"></canvas>
+            <div class="DemoHolder">
+                <table class="optionContainer">
+                    <tr class="optionSlider">
+                        <td><label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label></td>
+                        <td><input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider"></td>
+                    </tr>
+                    <tr class="optionSlider">
+                        <td><label for="demo_final:CellCountSlider" class="optionLegend">Cell Count: <span id="demo_final:CellCountValue"></span></label></td>
+                        <td><input type="range" min="1" max="8" value="4" class="slider" id="demo_final:CellCountSlider"></td>
+                    </tr>
+                    <tr class="optionSlider">
+                        <td><label for="demo_final:CellResSlider" class="optionLegend">Cell Resolution: <span id="demo_final:CellResValue"></span></label></td>
+                        <td><input type="range" min="1" max="7" value="5" class="slider" id="demo_final:CellResSlider"></td>
+                    </tr>
+                    <tr class="optionSlider">
+                        <td><label for="demo_final_ShowGrid" class="optionLegend">Show Grid: <span id="demo_final:ShowGridValue"></span></label></td>
+                        <td><input type="checkbox" checked id="demo_final_ShowGrid"></td>
+                    </tr>
+                </table>
+                <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
+                <canvas id='demo_final' width="512" height="512"></canvas>
+            </div>
 
 
         </div>
