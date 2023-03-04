@@ -104,7 +104,24 @@
             <p>At this point for every candidate point, each surrounding grid vertex has two associated vectors; one random unit vector, and one vector which points from the vertex to the candidate point.</p>
             <p>We want to calculate the dot product between these two vectors. This is a mathematical process to give us a single number from two vectors of any length (as long as the two vectors have the same number of dimensions).</p>
             <p>This is a simple computation - just multiply each value against the equivalent value in the other vector and then add them all up!</p>
-            <p>[dot product demo?]</p>
+
+
+            <div class="DemoHolder">
+                <p>Vector A:
+                    <label for="demo_DotProduct:Ax">x:</label>
+                    <input id="demo_DotProduct:Ax" type="number" min="-1" max="1" step="0.05" value="-0.5" onchange="UpdateDotProductDemo()">
+                    <label for="demo_DotProduct:Ay">y:</label>
+                    <input id="demo_DotProduct:Ay" type="number" min="-1" max="1" step="0.05" value="0.5" onchange="UpdateDotProductDemo()">
+                </p>
+                <p>Vector B:
+                    <label for="demo_DotProduct:Bx">x:</label>
+                    <input id="demo_DotProduct:Bx" type="number" min="-1" max="1" step="0.05" value="0.5" onchange="UpdateDotProductDemo()">
+                    <label for="demo_DotProduct:By">y:</label>
+                    <input id="demo_DotProduct:By" type="number" min="-1" max="1" step="0.05" value="0.5" onchange="UpdateDotProductDemo()">
+                </p>
+                <p>Dot Product: <span id="demo_DotProduct:DotProduct"></span></p>
+                <canvas id='demo_DotProduct' width="512" height="512"></canvas>
+            </div>
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Interpolation</span></h5>
             <p>The final step in the process is to interpolate between each of the surrounding values. This is sort of ‘averaging out’ the values around it. However, it is not as simple as just finding the mean of the values. Interpolation is finding a value in between two numbers, but it can be weighted to either side. </p>
