@@ -207,6 +207,13 @@ function UpdateDotProductDemo() {
     let Bx = Number(document.getElementById("demo_DotProduct:Bx").value);
     let By = -Number(document.getElementById("demo_DotProduct:By").value);
 
+    if ((Ax < -1) || (Ax > 1) || (Bx < -1) || (Bx > 1) || (Ay < -1) || (Ay > 1) || (By < -1) || (By > 1)) {
+        // At least one value out of range
+        document.getElementById("demo_DotProduct:RangeWarning").style.display = "block";
+        return;
+    }
+    document.getElementById("demo_DotProduct:RangeWarning").style.display = "none";
+
     // Construct the vectors and calculate the dot product
     let DotProduct = (Ax * Bx) + (Ay * By);
 
