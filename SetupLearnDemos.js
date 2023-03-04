@@ -178,6 +178,10 @@ function GenerateRandomGridVectorsAndUpdateDOM() {
     GVD_Context.lineTo(GVD_Canvas.width, 3 * GVD_Canvas.width/4);
     GVD_Context.stroke();
 
+
+    GVD_Context.strokeStyle = "#ff0000";
+    GVD_Context.lineWidth = 3;
+
     for (let x = 128; x < 512; x+=128) {
         for (let y = 128; y < 512; y+=128) {
             // Calculate a random grid vector
@@ -188,6 +192,10 @@ function GenerateRandomGridVectorsAndUpdateDOM() {
             canvas_arrow(GVD_Context, x, y, xEnd, yEnd)
         }
     }
+
+
+    GVD_Context.strokeStyle = "#000";
+    GVD_Context.lineWidth = 1;
 }
 
 GenerateRandomGridVectorsAndUpdateDOM();
@@ -288,3 +296,14 @@ function UpdateInterpolationDemo() {
 }
 
 UpdateInterpolationDemo();
+
+
+
+// Heightmap Demo
+
+// greyscale noise demo
+button = document.getElementById("demo_2DPerlinHeightMap:GenerateNoise");
+button.addEventListener("click", function () {
+    FillCanvasWithHeightMap("demo_2DPerlinHeightMap", 4,32, 1, false)
+})
+FillCanvasWithHeightMap("demo_2DPerlinHeightMap", 4,32, 1, false)

@@ -72,7 +72,7 @@
                 <canvas id='demo_GridVectors' width="512" height="512"></canvas>
             </div>
 
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Candidate Point Vectors</span></h5>
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">CANDIDATE POINT VECTORS</span></h5>
             <p>The next step is to calculate vectors to what we call the candidate points. These are the actual positions of the values for perlin noise we want to generate. In some cases, it might be good to imagine the grid of vectors as a coordinate system, and each of our candidate points sits in between the coordinate grid. At each vertex of our coordinate grid there is a random normalised vector.</p>
             <p>For example our candidate point might be at (1.3, 0.4), and it is surrounded by the grid vectors at coordinates (1,0), (1,1), (2,0), (2,1). Each of these 4 grid points have an associated random unit vector from the previous step, but we won't worry about these until the next step.</p>
             <p>The Candidate Point Vectors are the vectors which will point at the candidate point from each of the surrounding grid points. The number of these vectors needed also depends on the number of dimensions we are generating Perlin Noise for. For example, on a 2D plane there are 4 surrounding grid vertices (forming a square surrounding the point), but in 3D space there would be 8 surrounding grid vertices (forming a cube surrounding the point).</p>
@@ -89,7 +89,7 @@
                 <canvas id='demo_CandidatePointVectors' width="512" height="512"></canvas>
             </div>
 
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Dot Product</span></h5>
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">DOT PRODUCTS</span></h5>
             <p>At this point for every candidate point, each surrounding grid vertex has two associated vectors; one random unit vector, and one vector which points from the vertex to the candidate point.</p>
             <p>We want to calculate the dot product between these two vectors. This is a mathematical process to give us a single number from two vectors of any length (as long as the two vectors have the same number of dimensions).</p>
             <p>This is a simple computation - just multiply each value against the equivalent value in the other vector and then add them all up!</p>
@@ -113,11 +113,11 @@
                 <canvas id='demo_DotProduct' width="512" height="512"></canvas>
             </div>
 
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Interpolation</span></h5>
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INTERPOLATION</span></h5>
             <p>The final step in the process is to interpolate between each of the surrounding values. This is sort of ‘averaging out’ the surrounding values. However, it is not as simple as just finding the mean of the values. Interpolation is finding a value in between two numbers, but it can be weighted to either side. </p>
-            <p>[interpolation demo?]</p>
+
+
             <p>In our case we want to weight the values based on how close the candidate point is to the grid vertex. In our 2D example, we have 4 points, which we need to interpolate both in the x and y direction.</p>
-            <p>[2d interpolation demo?]</p>
 
             <div class="DemoHolder">
                 <div id="demo_Interpolation:Values">
@@ -141,20 +141,30 @@
             <p>Most interpolation with perlin noise often doesn’t use what we call a ‘linear’ interpolation’ as shown above. More often than not, we use a smoother interpolation function; a common one is Smoothstep.</p>
             <p>[image of different interpolations on a graph]</p>
             <p>Finally, we should have one single value for our candidate point. This is a floating point value, and represents the value of the noise at this position in space.</p>
+
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EXAMPLE WALKTHROUGH</span></h5>
+            <p>[example walkthrough going through steps for single candidate point]</p>
+
             <p>This value can then be mapped to whatever usage we want! Here we have a demo where some 2D noise has been generated and used as a heightmap, and depending on the value we have assigned a colour. </p>
-            <p>[heightmap demo]</p>
-
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Example Walkthrough</span></h5>
-            <p>[example walkthrough]</p>
-            <p></p>
-
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Extended Implementations</span></h5>
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Fractal Noise</span></h5>
-            <p></p>
-            <p></p>
 
 
+            <div class="DemoHolder">
+                <button id="demo_2DPerlinHeightMap:GenerateNoise">Generate Noise</button>
+                <canvas id='demo_2DPerlinHeightMap' width="512" height="512"></canvas>
+            </div>
 
+
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW TO MAKE "REALISTIC" TERRAIN</span></h5>
+            <p>Now, that is everything you need to know to make Perlin Noise! But... that doesn't look like any realistic terrain now does it?... </p>
+            <p>What we have made so far looks too 'blobby'. It might be good for something like animating the bobbing of a floating balloon, or as the 2D map of a cartoon sideslipping car game. However, it is too smooth. It doesn't look like what we might want to make some realistic cloud textures, or a high resolution 3D terrain map.</p>
+
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">FRACTAL NOISE</span></h5>
+            <p>The solution to this is to add on more layers of noise but at a lower amplitude and a higher frequency! This is what we refer to as 'Fractal Noise'. It is common to add on further layers of the noise with half the amplitude and double the frequency as a second octave.</p>
+            <p>However, we are not just limited to two octaves! We can go as far as we want, but of course every time we need an extra layer, it takes more time to compute and the level of added detail is halved.</p>
+
+
+
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">FINAL FRACTAL DEMO</span></h5>
             <div class="DemoHolder">
                 <table class="optionContainer">
                     <tr class="optionSlider">
@@ -177,6 +187,9 @@
                 <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
                 <canvas id='demo_final' width="512" height="512"></canvas>
             </div>
+
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">BEYOND PERLIN NOISE</span></h5>
+            <p>Simplex noise, Vorroni Tesselation, Poisson Disk Sampling</p>
 
 
         </div>
