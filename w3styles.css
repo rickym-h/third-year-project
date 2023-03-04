@@ -300,3 +300,8 @@ td:first-child {
     padding: 15px;
     border: 1px solid black;
 }
+
+#demo_Interpolation\:Values {
+    display: flex;
+    flex-direction: row;
+}

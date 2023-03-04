@@ -129,6 +129,26 @@
             <p>[interpolation demo?]</p>
             <p>In our case we want to weight the values based on how close the candidate point is to the grid vertex. In our 2D example, we have 4 points, which we need to interpolated both in the x and y direction.</p>
             <p>[2d interpolation demo?]</p>
+
+            <div class="DemoHolder">
+                <div id="demo_Interpolation:Values">
+                    <label>
+                        Number A:
+                        <input id="demo_Interpolation:A" type="number" min="-10" max="10" step="any" value="1" oninput="UpdateInterpolationDemo()">
+                    </label>
+                    <label>
+                        Weight: <span id="demo_Interpolation:Weight"></span>
+                        <input id="demo_Interpolation:W" type="range" min="0" max="1" step="0.01" oninput="UpdateInterpolationDemo()">
+                    </label>
+                    <label>
+                        Number B:
+                        <input id="demo_Interpolation:B" type="number" min="-10" max="10" step="any" value="5" oninput="UpdateInterpolationDemo()">
+                    </label>
+                </div>
+                <p>Interpolated Value: <span id="demo_Interpolation:Value"></span></p>
+            </div>
+
+
             <p>Most interpolation with perlin noise often doesn’t use what we call a ‘linear’ interpolation’ as shown above. More often than not, we use a smoother interpolation function; a common one is Smoothstep.</p>
             <p>[image of different interpolations on a graph]</p>
             <p>Finally, we should have one single value for our candidate point. This is a floating point value, and represents the value of the noise at this position in space.</p>

@@ -198,7 +198,7 @@ button.addEventListener("click", () => {
 
 
 
-// Dot Product Demo
+/// Dot Product Demo
 
 function UpdateDotProductDemo() {
     // Take the values from the 4 inputs
@@ -266,3 +266,25 @@ function UpdateDotProductDemo() {
 }
 
 UpdateDotProductDemo();
+
+
+
+
+
+// Interpolation Demo
+
+function UpdateInterpolationDemo() {
+    let A = Number(document.getElementById("demo_Interpolation:A").value);
+    let B = Number(document.getElementById("demo_Interpolation:B").value);
+    let W = Number(document.getElementById("demo_Interpolation:W").value);
+
+    if ((isNaN(A)) || isNaN(B) || isNaN(W)) {
+        return;
+    }
+
+    let value = perlin.interpolate(W, A, B);
+
+    document.getElementById("demo_Interpolation:Value").innerText = value.toString();
+}
+
+UpdateInterpolationDemo();
