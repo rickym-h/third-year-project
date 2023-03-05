@@ -100,4 +100,6 @@ let perlin = {
         return TotalPerlin;
     }
 }
+
+// Initialises the caches as soon as the object is defined
 perlin.seed();

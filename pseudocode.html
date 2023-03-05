@@ -53,17 +53,114 @@
   <div class="w3-container" id="about">
     <div class="w3-content" style="max-width:700px">
       <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">PSEUDOCODE</span></h5>
-      <p>CREATED MY KEN PERLIN ETC</p>
-      <p>Perlin noise is an algorithm to generate deterministic gradient noise. Since it is deterministic, it can be seeded to generate the same values with the same inputs, meaning it is predictable. Gradient noise as a type of noise which is created by interpolating between gradients.</p>
-      <p>At a very high level, it allows us to generate random numbers which are close to nearby randomly generated values, rather than simply completely random. This can be useful for things like creating more realistic textures for clouds or wood in computer graphics.</p>
-      <p>It can generate values in any number of dimensions but its most commonly implemented in two, three, or four dimensions.</p>
-      <p>The complexity of the algorithm is O(2n) where n is the number of dimensions.</p>
-      <!--      <div class="w3-panel w3-leftbar w3-light-grey">-->
-      <!--        <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>-->
-      <!--        <p>Chef, Coffeeist and Owner: Liam Brown</p>-->
-      <!--      </div>-->
-      <!--      <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>-->
-      <!--      <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>-->
+
+      <div>
+    <pre>
+// Define an object to handle Perlin generation
+let perlin = {
+    // Gets a random vector - not seeded - however results will be saved into a map
+    rand_vect: function(){
+        let theta = Math.random() * 2 * Math.PI;
+        return {x: Math.cos(theta), y: Math.sin(theta)};
+    },
+
+    // Takes two points - the candidate point (x,y), and a grid corner (vx, vy)
+    // Interpolates between the vector of the corner (grid_vector)
+    // and the vector represented by corner-&gt;candidate point (candidate_vector)
+    dot_prod_grid: function(x, y, vx, vy, octave){
+        // Calculate the candidate vector from the co-ordinate
+        let candidate_vector = {x: x - vx, y: y - vy};
+
+        // Generate the unit-length Grid Vector, or fetch from cache if it exists
+        let key = [vx, vy, octave].join(&quot;,&quot;);
+        let grid_vector;
+        if (this.vector_map.has(key)){
+            grid_vector = this.vector_map.get(key);
+        } else {
+            grid_vector = this.rand_vect();
+            this.vector_map.set(key, grid_vector);
+        }
+
+        // Return the dot-product
+        return candidate_vector.x * grid_vector.x + candidate_vector.y * grid_vector.y;
+    },
+
+
+    // Weight Interpolation using various functions
+    smootherstep: function(x) {
+        // Smoother step interpolation (version from Ken Perlin)
+        return (x**3 * (x * ((x*6) - 15) + 10));
+    },
+    smoothstep: function(x) {
+        // Smoothstep interpolation (3x^2 - 2x^2)
+        return x**2 * (3 - (2*x));
+    },
+    linear: function(x) {
+        // Linear interpolation
+        return x
+    },
+    // Value interpolation utilising various weight interpolation functions
+    interpolate: function(weight, a, b) {
+        return a + this.smootherstep(weight) * (b-a);
+    },
+
+    // Initialises the object and clears any saved gradients or vectors
+    // vector_map are saved vectors to use when calculating dot products
+    // perlin_cache are saved perlin values so if the same coordinates are called, the same output is fetched
+    seed: function(){
+        this.vector_map = new Map();
+        this.perlin_cache = new Map();
+    },
+
+    // Main function to get perlin noise
+    get: function(x, y, octave = 1) {
+
+        // TotalPerlin is the accumulated value of multiple layers of perlin noise added to a point
+        let TotalPerlin = 0;
+
+        // Loop over every octave. At each octave a new value of perlin noise is generated and added to TotalPerlin
+        for (let currentOctave = 1; currentOctave &lt;= octave; currentOctave++) {
+
+            // Checks if the cache contains a value for this coordinate
+            let key = [x,y,currentOctave].join(&quot;,&quot;);
+            if (this.perlin_cache.has(key))
+                return this.perlin_cache.get(key);
+
+            // Get the corners of the coordinate
+            let xFloor = Math.floor(x);
+            let yFloor = Math.floor(y);
+
+            // Calculate Grid Corner values from the two vectors at every point
+            let TopLeft = this.dot_prod_grid(x, y, xFloor,   yFloor, currentOctave);
+            let TopRight = this.dot_prod_grid(x, y, xFloor+1, yFloor, currentOctave);
+            let BottomLeft = this.dot_prod_grid(x, y, xFloor,   yFloor+1, currentOctave);
+            let BottomRight = this.dot_prod_grid(x, y, xFloor+1, yFloor+1, currentOctave);
+
+            // Interpolate between values at Grid Corners
+            let xTop = this.interpolate(x-xFloor, TopLeft, TopRight);
+            let xBottom = this.interpolate(x-xFloor, BottomLeft, BottomRight);
+            let Value = this.interpolate(y-yFloor, xTop, xBottom);
+
+            // Adjust amplitude based on octave
+            Value /= (Math.pow(2, currentOctave-1));
+
+            // Saves to cache in case the same coord is called in the future
+            this.perlin_cache.set(key, Value);
+            TotalPerlin += Value;
+
+            // Adjust x and y to octaves for future iterations
+            x *= 2;
+            y *= 2;
+        }
+        return TotalPerlin;
+    }
+}
+
+// Initialises the caches as soon as the object is defined
+perlin.seed();</pre>
+      </div>
+
+
     </div>
   </div>
 
