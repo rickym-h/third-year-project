@@ -57,14 +57,7 @@ let perlin = {
 
         let TotalPerlin = 0;
 
-        x /= 2;
-        y /= 2;
-
         for (let currentOctave = 1; currentOctave <= octave; currentOctave++) {
-
-            // adjust x and y to octaves
-            x *= 2;
-            y *= 2;
 
             // Checks if the cache contains a value for this coordinate
             let key = [x,y,currentOctave].join(",");
@@ -92,6 +85,10 @@ let perlin = {
             // Saves to cache in case the same coord is called in the future
             this.perlin_cache.set(key, Value);
             TotalPerlin += Value;
+
+            // Adjust x and y to octaves for future iterations
+            x *= 2;
+            y *= 2;
         }
         return TotalPerlin;
     }
