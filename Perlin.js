@@ -26,12 +26,21 @@ let perlin = {
     },
 
 
-    // Interpolation function using smootherstep
-    smootherstep: function(x){
+    // Weight Interpolation using various functions
+    smootherstep: function(x) {
         // Smoother step interpolation (version from Ken Perlin)
-        return 6*x**5 - 15*x**4 + 10*x**3;
+        return (x**3 * (x * ((x*6) - 15) + 10));
     },
-    interpolate: function(weight, a, b){
+    smoothstep: function(x) {
+        // Smoothstep interpolation (3x^2 - 2x^2)
+        return x**2 * (3 - (2*x));
+    },
+    linear: function(x) {
+        // Linear interpolation
+        return x
+    },
+    // Value interpolation utilising various weight interpolation functions
+    interpolate: function(weight, a, b) {
         return a + this.smootherstep(weight) * (b-a);
     },
 
@@ -63,24 +72,26 @@ let perlin = {
                 return this.perlin_cache.get(key);
 
             // Get the corners of the coordinate
-            let xf = Math.floor(x);
-            let yf = Math.floor(y);
-            // interpolate between these corners. (tl = top left, br = bottom right etc)
-            let tl = this.dot_prod_grid(x, y, xf,   yf, currentOctave);
-            let tr = this.dot_prod_grid(x, y, xf+1, yf, currentOctave);
-            let bl = this.dot_prod_grid(x, y, xf,   yf+1, currentOctave);
-            let br = this.dot_prod_grid(x, y, xf+1, yf+1, currentOctave);
+            let xFloor = Math.floor(x);
+            let yFloor = Math.floor(y);
 
-            let xt = this.interpolate(x-xf, tl, tr);
-            let xb = this.interpolate(x-xf, bl, br);
-            let v = this.interpolate(y-yf, xt, xb);
+            // Calculate Grid Corner values from the two vectors at every point
+            let TopLeft = this.dot_prod_grid(x, y, xFloor,   yFloor, currentOctave);
+            let TopRight = this.dot_prod_grid(x, y, xFloor+1, yFloor, currentOctave);
+            let BottomLeft = this.dot_prod_grid(x, y, xFloor,   yFloor+1, currentOctave);
+            let BottomRight = this.dot_prod_grid(x, y, xFloor+1, yFloor+1, currentOctave);
 
-            // adjust based on octave amplitude
-            v /= (Math.pow(2, currentOctave-1));
+            // Interpolate between values at Grid Corners
+            let xTop = this.interpolate(x-xFloor, TopLeft, TopRight);
+            let xBottom = this.interpolate(x-xFloor, BottomLeft, BottomRight);
+            let Value = this.interpolate(y-yFloor, xTop, xBottom);
+
+            // Adjust amplitude based on octave
+            Value /= (Math.pow(2, currentOctave-1));
 
             // Saves to cache in case the same coord is called in the future
-            this.perlin_cache.set(key, v);
-            TotalPerlin += v;
+            this.perlin_cache.set(key, Value);
+            TotalPerlin += Value;
         }
         return TotalPerlin;
     }
