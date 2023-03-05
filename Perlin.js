@@ -13,15 +13,20 @@ let perlin = {
     // Interpolates between the vector of the corner (grid_vector)
     // and the vector represented by corner->candidate point (candidate_vector)
     dot_prod_grid: function(x, y, vx, vy, octave){
-        let grid_vector;
+        // Calculate the candidate vector from the co-ordinate
         let candidate_vector = {x: x - vx, y: y - vy};
+
+        // Generate the unit-length Grid Vector, or fetch from cache if it exists
         let key = [vx, vy, octave].join(",");
+        let grid_vector;
         if (this.vector_map.has(key)){
             grid_vector = this.vector_map.get(key);
         } else {
             grid_vector = this.rand_vect();
             this.vector_map.set(key, grid_vector);
         }
+
+        // Return the dot-product
         return candidate_vector.x * grid_vector.x + candidate_vector.y * grid_vector.y;
     },
 
@@ -55,8 +60,10 @@ let perlin = {
     // Main function to get perlin noise
     get: function(x, y, octave = 1) {
 
+        // TotalPerlin is the accumulated value of multiple layers of perlin noise added to a point
         let TotalPerlin = 0;
 
+        // Loop over every octave. At each octave a new value of perlin noise is generated and added to TotalPerlin
         for (let currentOctave = 1; currentOctave <= octave; currentOctave++) {
 
             // Checks if the cache contains a value for this coordinate
