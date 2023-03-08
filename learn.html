@@ -57,6 +57,7 @@
             <p>Dimensions - The dimensions basically mean how many directions are the numbers  generated in? In 1-D the numbers can go left and right. In 2-D the numbers can go left, right, up and down. Perlin noise however can be applied to any number of dimensions; 3-D, 4-D, even 100-D if you wanted to!</p>
 
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE DEMO</span></h5>
                 <button id="demo_2DPerlin:GenerateNoise">Generate Noise</button>
                 <canvas id='demo_2DPerlin' width="512" height="512"></canvas>
             </div>
@@ -73,6 +74,7 @@
             <p>[demo for grid vectors]</p>
 
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">GRID VECTORS DEMO</span></h5>
                 <button id="demo_GridVectors:NewGrid">Re-generate grid</button>
                 <canvas id='demo_GridVectors' width="512" height="512"></canvas>
             </div>
@@ -85,6 +87,7 @@
             <p>[demo for candidate point vectors]</p>
 
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">CANDIDATE POINT & VECTORS DEMO</span></h5>
                 <button id="demo_CandidatePointVectors:PickCoord">Pick New Co-ordinate (or click in the square!)</button>
                 <p>Candidate Point: <span id="demo_CandidatePointVectors:PointCoord"></span></p>
                 <p>Vector A (Top Left): <span id="demo_CandidatePointVectors:A"></span></p>
@@ -99,8 +102,8 @@
             <p>We want to calculate the dot product between these two vectors. This is a mathematical process to give us a single number from two vectors of any length (as long as the two vectors have the same number of dimensions).</p>
             <p>This is a simple computation - just multiply each value against the equivalent value in the other vector and then add them all up!</p>
 
-
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">DOT PRODUCT DEMO</span></h5>
                 <p>Vector A:
                     <label for="demo_DotProduct:Ax">x:</label>
                     <input id="demo_DotProduct:Ax" type="number" min="-1" max="1" step="0.05" value="-0.5" onchange="UpdateDotProductDemo()">
@@ -125,6 +128,7 @@
             <p>In our case we want to weight the values based on how close the candidate point is to the grid vertex. In our 2D example, we have 4 points, which we need to interpolate both in the x and y direction.</p>
 
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">INTERPOLATION DEMO</span></h5>
                 <div id="demo_Interpolation:Values">
                     <label>
                         Number A:
@@ -154,8 +158,8 @@
 
             <p>This value can then be mapped to whatever usage we want! Here we have a demo where some 2D noise has been generated and used as a heightmap, and depending on the value we have assigned a colour. </p>
 
-
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE HEIGHTMAP</span></h5>
                 <button id="demo_2DPerlinHeightMap:GenerateNoise">Generate Noise</button>
                 <canvas id='demo_2DPerlinHeightMap' width="512" height="512"></canvas>
             </div>
@@ -170,9 +174,8 @@
             <p>However, we are not just limited to two octaves! We can go as far as we want, but of course every time we need an extra layer, it takes more time to compute and the level of added detail is halved.</p>
 
 
-
-            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">FINAL FRACTAL DEMO</span></h5>
             <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">FINAL FRACTAL DEMO</span></h5>
                 <table class="optionContainer">
                     <tr class="optionSlider">
                         <td><label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label></td>
