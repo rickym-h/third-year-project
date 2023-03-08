@@ -45,8 +45,15 @@ let perlin = {
         return x
     },
     // Value interpolation utilising various weight interpolation functions
-    interpolate: function(weight, a, b) {
-        return a + this.smootherstep(weight) * (b-a);
+    interpolate: function(weight, a, b, method=2) {
+        switch (method) {
+            case 0:
+                return a + this.linear(weight) * (b-a);
+            case 1:
+                return a + this.smoothstep(weight) * (b-a);
+            default:
+                return a + this.smootherstep(weight) * (b-a);
+        }
     },
 
     // Initialises the object and clears any saved gradients or vectors
