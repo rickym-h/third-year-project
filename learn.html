@@ -132,14 +132,16 @@
                     </label>
                     <label>
                         Weight: <span id="demo_Interpolation:Weight"></span>
-                        <input id="demo_Interpolation:W" type="range" min="0" max="1" step="0.01" oninput="UpdateInterpolationDemo()">
+                        <input id="demo_Interpolation:W" type="range" min="0" max="1" step="0.01" class="slider" oninput="UpdateInterpolationDemo()">
                     </label>
                     <label>
                         Number B:
                         <input id="demo_Interpolation:B" type="number" min="-10" max="10" step="any" value="5" oninput="UpdateInterpolationDemo()">
                     </label>
                 </div>
-                <p>Interpolated Value: <span id="demo_Interpolation:Value"></span></p>
+                <p>Linear Interpolated Value: <span id="demo_Interpolation:Value_L"></span></p>
+                <p>Smoothstep Interpolated Value: <span id="demo_Interpolation:Value_S"></span></p>
+                <p>Smootherstep Interpolated Value: <span id="demo_Interpolation:Value_SS"></span></p>
             </div>
 
 
