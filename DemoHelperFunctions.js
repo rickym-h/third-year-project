@@ -79,8 +79,6 @@ function FillCanvasWithNoise(canvasID, GridSize, PixelsPerGridCell, OctaveCount,
     }
 }
 
-
-
 function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCount, ShowGrid=true) {
     perlin.seed()
     let canvas = document.getElementById(canvasID);
@@ -112,4 +110,18 @@ function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCo
             );
         }
     }
+}
+
+function canvas_arrow(context, fromx, fromy, tox, toy) {
+    let headlen = 10; // length of head in pixels
+    let dx = tox - fromx;
+    let dy = toy - fromy;
+    let angle = Math.atan2(dy, dx);
+    context.beginPath()
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+    context.stroke();
 }
