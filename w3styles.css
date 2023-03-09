@@ -305,3 +305,7 @@ td:first-child {
     display: flex;
     flex-direction: row;
 }
+
+input[type='number']{
+    width: 80px;
+}

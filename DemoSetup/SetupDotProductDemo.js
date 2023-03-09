@@ -56,8 +56,37 @@ function UpdateDotProductDemo() {
     )
     DP_Context.strokeStyle = "#000";
     DP_Context.lineWidth = 1;
-
 }
+
+button = document.getElementById("demo_DotProduct:NormaliseA");
+button.addEventListener("click", function () {
+
+    let x = Number(document.getElementById("demo_DotProduct:Ax").value);
+    let y = Number(document.getElementById("demo_DotProduct:Ay").value);
+
+    let length = Math.sqrt(x*x + y*y);
+    x /= length;
+    y /= length;
+
+    document.getElementById('demo_DotProduct:Ax').value = x;
+    document.getElementById('demo_DotProduct:Ay').value = y;
+    UpdateDotProductDemo();
+})
+
+button = document.getElementById("demo_DotProduct:NormaliseB");
+button.addEventListener("click", function () {
+
+    let x = Number(document.getElementById("demo_DotProduct:Bx").value);
+    let y = Number(document.getElementById("demo_DotProduct:By").value);
+
+    let length = Math.sqrt(x*x + y*y);
+    x /= length;
+    y /= length;
+
+    document.getElementById('demo_DotProduct:Bx').value = x;
+    document.getElementById('demo_DotProduct:By').value = y;
+    UpdateDotProductDemo();
+})
 
 UpdateDotProductDemo();
 
