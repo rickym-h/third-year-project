@@ -126,4 +126,29 @@ function canvas_arrow(context, fromx, fromy, tox, toy) {
     context.stroke();
 }
 
-canvas.innerText
+
+function MarkSectionProgress(key, complete) {
+    if (localStorage.getItem("LearnPageStatus") == null) {
+        let myObject = {
+            "Introduction": false,
+            "GridVectors": false,
+            "CandidatePointVectors": false,
+            "DotProducts": false,
+            "Interpolation": false,
+            "Example": false,
+            "FractalNoise": false,
+            "BeyondPerlin": false,
+        }
+        localStorage.setItem("LearnPageStatus", JSON.stringify(myObject));
+        console.log(localStorage.getItem("LearnPageStatus"))
+    }
+
+    if (localStorage.getItem("LearnPageStatus") == null) {
+        console.log("No LearnPageStatus object - exiting...")
+        return;
+    }
+
+    let myObject = JSON.parse(localStorage.getItem("LearnPageStatus"));
+    myObject[key] = complete;
+    localStorage.setItem("LearnPageStatus", JSON.stringify(myObject));
+}

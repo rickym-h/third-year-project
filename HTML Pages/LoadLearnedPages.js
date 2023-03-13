@@ -22,8 +22,6 @@ function updateLearnedPages() {
 
     let myObject = JSON.parse(localStorage.getItem("LearnPageStatus"));
 
-    myObject["Introduction"] = true;
-
     for (let key in myObject) {
         let value = myObject[key];
         console.log(key, value);
@@ -35,11 +33,6 @@ function updateLearnedPages() {
             document.getElementById(key).innerText = "Incomplete";
         }
     }
-
-
 }
 
-
 updateLearnedPages()
-
-
