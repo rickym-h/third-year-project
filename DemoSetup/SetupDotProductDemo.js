@@ -90,4 +90,13 @@ button.addEventListener("click", function () {
 
 UpdateDotProductDemo();
 
+let toggleProgress = document.getElementById("toggleSectionComplete");
 
+toggleProgress.addEventListener("change", ()=> {
+    let complete = toggleProgress.checked;
+    MarkSectionProgress("DotProducts", complete);
+})
+
+
+
+toggleProgress.checked = GetSectionProgress("DotProducts");

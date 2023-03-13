@@ -83,3 +83,11 @@ button.addEventListener("click", () => {
     GenerateCandidateVectorsAndUpdateDOM(x, y)
 })
 
+
+let toggleProgress = document.getElementById("toggleSectionComplete");
+
+toggleProgress.addEventListener("change", ()=> {
+    let complete = toggleProgress.checked;
+    MarkSectionProgress("CandidatePointVectors", complete);
+})
+toggleProgress.checked = GetSectionProgress("CandidatePointVectors");

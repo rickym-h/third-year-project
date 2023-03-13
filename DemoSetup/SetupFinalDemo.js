@@ -33,3 +33,10 @@ FillCanvasWithHeightMap("demo_final", demo_final_CellCountSlider.value, Math.pow
 
 
 
+let toggleProgress = document.getElementById("toggleSectionComplete");
+
+toggleProgress.addEventListener("change", ()=> {
+    let complete = toggleProgress.checked;
+    MarkSectionProgress("FractalNoise", complete);
+})
+toggleProgress.checked = GetSectionProgress("FractalNoise");

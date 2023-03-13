@@ -140,7 +140,6 @@ function MarkSectionProgress(key, complete) {
             "BeyondPerlin": false,
         }
         localStorage.setItem("LearnPageStatus", JSON.stringify(myObject));
-        console.log(localStorage.getItem("LearnPageStatus"))
     }
 
     if (localStorage.getItem("LearnPageStatus") == null) {
@@ -151,4 +150,29 @@ function MarkSectionProgress(key, complete) {
     let myObject = JSON.parse(localStorage.getItem("LearnPageStatus"));
     myObject[key] = complete;
     localStorage.setItem("LearnPageStatus", JSON.stringify(myObject));
+}
+
+function GetSectionProgress(key) {
+    if (localStorage.getItem("LearnPageStatus") == null) {
+        let myObject = {
+            "Introduction": false,
+            "GridVectors": false,
+            "CandidatePointVectors": false,
+            "DotProducts": false,
+            "Interpolation": false,
+            "Example": false,
+            "FractalNoise": false,
+            "BeyondPerlin": false,
+        }
+        localStorage.setItem("LearnPageStatus", JSON.stringify(myObject));
+        console.log(localStorage.getItem("LearnPageStatus"))
+    }
+
+    if (localStorage.getItem("LearnPageStatus") == null) {
+        console.log("No LearnPageStatus object - exiting...")
+        return false;
+    }
+
+    let myObject = JSON.parse(localStorage.getItem("LearnPageStatus"));
+    return myObject[key];
 }

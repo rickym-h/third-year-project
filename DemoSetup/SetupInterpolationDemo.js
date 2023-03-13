@@ -20,3 +20,11 @@ function UpdateInterpolationDemo() {
 
 UpdateInterpolationDemo();
 
+let toggleProgress = document.getElementById("toggleSectionComplete");
+
+toggleProgress.addEventListener("change", ()=> {
+    let complete = toggleProgress.checked;
+    MarkSectionProgress("Interpolation", complete);
+})
+
+toggleProgress.checked = GetSectionProgress("Interpolation");

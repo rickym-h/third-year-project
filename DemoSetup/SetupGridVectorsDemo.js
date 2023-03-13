@@ -63,3 +63,12 @@ button.addEventListener("click", () => {
 })
 GenerateRandomGridVectorsAndUpdateDOM();
 
+let toggleProgress = document.getElementById("toggleSectionComplete");
+
+toggleProgress.addEventListener("change", ()=> {
+    let complete = toggleProgress.checked;
+    MarkSectionProgress("GridVectors", complete);
+})
+
+
+toggleProgress.checked = GetSectionProgress("GridVectors");
