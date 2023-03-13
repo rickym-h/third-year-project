@@ -311,11 +311,34 @@ input[type='number']{
 }
 
 .complete-indicator{
-    width: 20px;
-    height: 20px;
+    width: 30%;
+    height: 80%;
     background-color: green;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+    justify-content: center;
 }
 
 .incomplete-indicator {
     background-color: red;
 }
+
+tr {
+    display:flex;
+    text-align: center;
+}
+th, td {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 100%;
+    margin: 2px;
+    height: 50px;
+    display:flex;
+    /* centering the button */
+    align-items:center;
+    justify-content:center;
+}
+

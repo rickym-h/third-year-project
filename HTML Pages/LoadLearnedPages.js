@@ -1,5 +1,5 @@
 function updateLearnedPages() {
-    if (!localStorage.LearnPagesStatus) {
+    if (localStorage.getItem("LearnPageStatus") == null) {
         let myObject = {
             "Introduction": false,
             "GridVectors": false,
@@ -11,11 +11,14 @@ function updateLearnedPages() {
             "BeyondPerlin": false,
         }
         localStorage.setItem("LearnPageStatus", JSON.stringify(myObject));
+        console.log(localStorage.getItem("LearnPageStatus"))
     }
 
-    if (!localStorage.LearnPagesStatus) {
+    if (localStorage.getItem("LearnPageStatus") == null) {
+        console.log("No LearnPageStatus object - exiting...")
         return;
     }
+    console.log(localStorage.getItem("LearnPageStatus"))
 
     let myObject = JSON.parse(localStorage.getItem("LearnPageStatus"));
 
@@ -26,8 +29,10 @@ function updateLearnedPages() {
         console.log(key, value);
         if (value) {
             document.getElementById(key).classList.remove("incomplete-indicator");
+            document.getElementById(key).innerText = "DONE";
         } else {
             document.getElementById(key).classList.add("incomplete-indicator");
+            document.getElementById(key).innerText = "Incomplete";
         }
     }
 
@@ -36,3 +41,5 @@ function updateLearnedPages() {
 
 
 updateLearnedPages()
+
+
