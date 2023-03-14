@@ -1,106 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fractal Noise</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../w3styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-  <style>
-    body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
-  </style>
-  <script src="../../Perlin.js" defer></script>
-  <script src="../../DemoSetup/DemoHelperFunctions.js" defer></script>
-  <script src="../../DemoSetup/SetupFinalDemo.js" defer></script>
+    <title>Fractal Noise</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../w3styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+    </style>
+    <script defer src="../../Perlin.js"></script>
+    <script defer src="../../DemoSetup/DemoHelperFunctions.js"></script>
+    <script defer src="../../DemoSetup/SetupFinalDemo.js"></script>
 </head>
 <body>
 
 
 <!-- Links (sit on top) -->
 <div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s2">
-      <a href="../../index.html" class="w3-button w3-block w3-black">HOME</a>
+    <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../../index.html">HOME</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../learn.html">LEARN</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../demos.html">DEMOS</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../pseudocode.html">PSEUDOCODE</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../TestYourself.html">TEST YOURSELF</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../Quiz.html">QUIZ</a>
+        </div>
     </div>
-    <div class="w3-col s2">
-      <a href="../learn.html" class="w3-button w3-block w3-black">LEARN</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../demos.html" class="w3-button w3-block w3-black">DEMOS</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../pseudocode.html" class="w3-button w3-block w3-black">PSEUDOCODE</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../TestYourself.html" class="w3-button w3-block w3-black">TEST YOURSELF</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../Quiz.html" class="w3-button w3-block w3-black">QUIZ</a>
-    </div>
-  </div>
 </div>
 
 
 <div class="w3-sand w3-grayscale w3-large">
 
-  <div class="w3-container" id="about">
-    <div class="w3-content" style="max-width:700px">
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
 
 
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW TO MAKE "REALISTIC" TERRAIN</span></h5>
+            <p>Now, that is everything you need to know to make Perlin Noise! But... that doesn't look like any
+                realistic terrain now does it?... </p>
+            <p>What we have made so far looks too 'blobby'. It might be good for something like animating the bobbing of
+                a floating balloon, or as the 2D map of a cartoon sideslipping car game. However, it is too smooth. It
+                doesn't look like what we might want to make some realistic cloud textures, or a high resolution 3D
+                terrain map.</p>
 
-      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW TO MAKE "REALISTIC" TERRAIN</span></h5>
-      <p>Now, that is everything you need to know to make Perlin Noise! But... that doesn't look like any realistic terrain now does it?... </p>
-      <p>What we have made so far looks too 'blobby'. It might be good for something like animating the bobbing of a floating balloon, or as the 2D map of a cartoon sideslipping car game. However, it is too smooth. It doesn't look like what we might want to make some realistic cloud textures, or a high resolution 3D terrain map.</p>
-
-      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">FRACTAL NOISE</span></h5>
-      <p>The solution to this is to add on more layers of noise but at a lower amplitude and a higher frequency! This is what we refer to as 'Fractal Noise'. It is common to add on further layers of the noise with half the amplitude and double the frequency as a second octave.</p>
-      <p>However, we are not just limited to two octaves! We can go as far as we want, but of course every time we need an extra layer, it takes more time to compute and the level of added detail is halved.</p>
-
-
-      <div class="DemoHolder">
-        <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">FINAL FRACTAL DEMO</span></h5>
-        <table class="optionContainer">
-          <tr class="optionSlider">
-            <td><label for="demo_final:OctaveSlider" class="optionLegend">Octave: <span id="demo_final:OctaveValue"></span></label></td>
-            <td><input type="range" min="1" max="5" value="3" class="slider" id="demo_final:OctaveSlider"></td>
-          </tr>
-          <tr class="optionSlider">
-            <td><label for="demo_final:CellCountSlider" class="optionLegend">Cell Count: <span id="demo_final:CellCountValue"></span></label></td>
-            <td><input type="range" min="1" max="8" value="4" class="slider" id="demo_final:CellCountSlider"></td>
-          </tr>
-          <tr class="optionSlider">
-            <td><label for="demo_final:CellResSlider" class="optionLegend">Cell Resolution: <span id="demo_final:CellResValue"></span></label></td>
-            <td><input type="range" min="1" max="7" value="5" class="slider" id="demo_final:CellResSlider"></td>
-          </tr>
-          <tr class="optionSlider">
-            <td><label for="demo_final_ShowGrid" class="optionLegend">Show Grid: <span id="demo_final:ShowGridValue"></span></label></td>
-            <td><input type="checkbox" checked id="demo_final_ShowGrid"></td>
-          </tr>
-        </table>
-        <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
-        <canvas id='demo_final' width="512" height="512"></canvas>
-      </div>
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">FRACTAL NOISE</span></h5>
+            <p>The solution to this is to add on more layers of noise but at a lower amplitude and a higher frequency!
+                This is what we refer to as 'Fractal Noise'. It is common to add on further layers of the noise with
+                half the amplitude and double the frequency as a second octave.</p>
+            <p>However, we are not just limited to two octaves! We can go as far as we want, but of course every time we
+                need an extra layer, it takes more time to compute and the level of added detail is halved.</p>
 
 
-      <label class="toggle">
-        <input class="toggle-checkbox" type="checkbox" id="toggleSectionComplete">
-        <div class="toggle-switch"></div>
-        <span class="toggle-label">Mark Section Complete!</span>
-      </label>
+            <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">FINAL FRACTAL DEMO</span></h5>
+                <table class="optionContainer">
+                    <tr class="optionSlider">
+                        <td><label class="optionLegend" for="demo_final:OctaveSlider">Octave: <span
+                                id="demo_final:OctaveValue"></span></label></td>
+                        <td><input class="slider" id="demo_final:OctaveSlider" max="5" min="1" type="range" value="3">
+                        </td>
+                    </tr>
+                    <tr class="optionSlider">
+                        <td><label class="optionLegend" for="demo_final:CellCountSlider">Cell Count: <span
+                                id="demo_final:CellCountValue"></span></label></td>
+                        <td><input class="slider" id="demo_final:CellCountSlider" max="8" min="1" type="range"
+                                   value="4"></td>
+                    </tr>
+                    <tr class="optionSlider">
+                        <td><label class="optionLegend" for="demo_final:CellResSlider">Cell Resolution: <span
+                                id="demo_final:CellResValue"></span></label></td>
+                        <td><input class="slider" id="demo_final:CellResSlider" max="7" min="1" type="range" value="5">
+                        </td>
+                    </tr>
+                    <tr class="optionSlider">
+                        <td><label class="optionLegend" for="demo_final_ShowGrid">Show Grid: <span
+                                id="demo_final:ShowGridValue"></span></label></td>
+                        <td><input checked id="demo_final_ShowGrid" type="checkbox"></td>
+                    </tr>
+                </table>
+                <button id="demo_final:GenerateHeightMap">Generate Heightmap</button>
+                <canvas height="512" id='demo_final' width="512"></canvas>
+            </div>
 
+
+            <label class="toggle">
+                <input class="toggle-checkbox" id="toggleSectionComplete" type="checkbox">
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Mark Section Complete!</span>
+            </label>
+
+        </div>
     </div>
-  </div>
 
 
-  <!-- End page content -->
+    <!-- End page content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
+    <p>Created by <a class="w3-hover-text-green" href="https://github.com/rickym-h" target="_blank" title="W3.CSS">Richard
+        Hull</a></p>
 </footer>
 
 

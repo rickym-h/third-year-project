@@ -1,5 +1,3 @@
-
-
 /// Dot Product Demo
 
 function UpdateDotProductDemo() {
@@ -31,28 +29,28 @@ function UpdateDotProductDemo() {
 
     // Draw grid lines
     DP_Context.beginPath();
-    DP_Context.moveTo(DP_Canvas.width/2, 0);
-    DP_Context.lineTo(DP_Canvas.width/2, DP_Canvas.height);
+    DP_Context.moveTo(DP_Canvas.width / 2, 0);
+    DP_Context.lineTo(DP_Canvas.width / 2, DP_Canvas.height);
     DP_Context.stroke();
     DP_Context.beginPath();
-    DP_Context.moveTo(0, DP_Canvas.height/2);
-    DP_Context.lineTo(DP_Canvas.width, DP_Canvas.height/2);
+    DP_Context.moveTo(0, DP_Canvas.height / 2);
+    DP_Context.lineTo(DP_Canvas.width, DP_Canvas.height / 2);
     DP_Context.stroke();
 
     // Draw Vector A and B
     DP_Context.strokeStyle = "#ff0000";
     DP_Context.lineWidth = 3;
     DrawCanvasArrow(DP_Context,
-        (DP_Canvas.width/2),
-        (DP_Canvas.width/2),
-        (Ax + 1)*256,
-        (Ay + 1)*256
+        (DP_Canvas.width / 2),
+        (DP_Canvas.width / 2),
+        (Ax + 1) * 256,
+        (Ay + 1) * 256
     )
     DrawCanvasArrow(DP_Context,
-        (DP_Canvas.width/2),
-        (DP_Canvas.width/2),
-        (Bx+1)*(DP_Canvas.width/2),
-        (By+1)*(DP_Canvas.width/2)
+        (DP_Canvas.width / 2),
+        (DP_Canvas.width / 2),
+        (Bx + 1) * (DP_Canvas.width / 2),
+        (By + 1) * (DP_Canvas.width / 2)
     )
     DP_Context.strokeStyle = "#000";
     DP_Context.lineWidth = 1;
@@ -64,7 +62,7 @@ button.addEventListener("click", function () {
     let x = Number(document.getElementById("demo_DotProduct:Ax").value);
     let y = Number(document.getElementById("demo_DotProduct:Ay").value);
 
-    let length = Math.sqrt(x*x + y*y);
+    let length = Math.sqrt(x * x + y * y);
     x /= length;
     y /= length;
 
@@ -79,7 +77,7 @@ button.addEventListener("click", function () {
     let x = Number(document.getElementById("demo_DotProduct:Bx").value);
     let y = Number(document.getElementById("demo_DotProduct:By").value);
 
-    let length = Math.sqrt(x*x + y*y);
+    let length = Math.sqrt(x * x + y * y);
     x /= length;
     y /= length;
 
@@ -92,11 +90,10 @@ UpdateDotProductDemo();
 
 let toggleProgress = document.getElementById("toggleSectionComplete");
 
-toggleProgress.addEventListener("change", ()=> {
+toggleProgress.addEventListener("change", () => {
     let complete = toggleProgress.checked;
     MarkSectionProgress("DotProducts", complete);
 })
-
 
 
 toggleProgress.checked = GetSectionProgress("DotProducts");

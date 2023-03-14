@@ -1,83 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Example Walkthrough</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../w3styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-  <style>
-    body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
-  </style>
-  <script src="../../Perlin.js" defer></script>
-  <script src="../../DemoSetup/DemoHelperFunctions.js" defer></script>
-  <script src="../../DemoSetup/SetupHeightmapDemo.js" defer></script>
+    <title>Example Walkthrough</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../w3styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+    </style>
+    <script defer src="../../Perlin.js"></script>
+    <script defer src="../../DemoSetup/DemoHelperFunctions.js"></script>
+    <script defer src="../../DemoSetup/SetupHeightmapDemo.js"></script>
 </head>
 <body>
 
 
 <!-- Links (sit on top) -->
 <div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s2">
-      <a href="../../index.html" class="w3-button w3-block w3-black">HOME</a>
+    <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../../index.html">HOME</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../learn.html">LEARN</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../demos.html">DEMOS</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../pseudocode.html">PSEUDOCODE</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../TestYourself.html">TEST YOURSELF</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../Quiz.html">QUIZ</a>
+        </div>
     </div>
-    <div class="w3-col s2">
-      <a href="../learn.html" class="w3-button w3-block w3-black">LEARN</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../demos.html" class="w3-button w3-block w3-black">DEMOS</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../pseudocode.html" class="w3-button w3-block w3-black">PSEUDOCODE</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../TestYourself.html" class="w3-button w3-block w3-black">TEST YOURSELF</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../Quiz.html" class="w3-button w3-block w3-black">QUIZ</a>
-    </div>
-  </div>
 </div>
 
 
 <div class="w3-sand w3-grayscale w3-large">
 
-  <div class="w3-container" id="about">
-    <div class="w3-content" style="max-width:700px">
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
 
 
-      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EXAMPLE WALKTHROUGH</span></h5>
-      <p>[example walkthrough going through steps for single candidate point]</p>
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">EXAMPLE WALKTHROUGH</span></h5>
+            <p>[example walkthrough going through steps for single candidate point]</p>
 
-      <p>This value can then be mapped to whatever usage we want! Here we have a demo where some 2D noise has been generated and used as a heightmap, and depending on the value we have assigned a colour. </p>
+            <p>This value can then be mapped to whatever usage we want! Here we have a demo where some 2D noise has been
+                generated and used as a heightmap, and depending on the value we have assigned a colour. </p>
 
-      <div class="DemoHolder">
-        <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE HEIGHTMAP</span></h5>
-        <button id="demo_2DPerlinHeightMap:GenerateNoise">Generate Noise</button>
-        <canvas id='demo_2DPerlinHeightMap' width="512" height="512"></canvas>
-      </div>
+            <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE HEIGHTMAP</span></h5>
+                <button id="demo_2DPerlinHeightMap:GenerateNoise">Generate Noise</button>
+                <canvas height="512" id='demo_2DPerlinHeightMap' width="512"></canvas>
+            </div>
 
 
-      <label class="toggle">
-        <input class="toggle-checkbox" type="checkbox" id="toggleSectionComplete">
-        <div class="toggle-switch"></div>
-        <span class="toggle-label">Mark Section Complete!</span>
-      </label>
+            <label class="toggle">
+                <input class="toggle-checkbox" id="toggleSectionComplete" type="checkbox">
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Mark Section Complete!</span>
+            </label>
 
+        </div>
     </div>
-  </div>
 
 
-  <!-- End page content -->
+    <!-- End page content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
+    <p>Created by <a class="w3-hover-text-green" href="https://github.com/rickym-h" target="_blank" title="W3.CSS">Richard
+        Hull</a></p>
 </footer>
 
 

@@ -1,4 +1,3 @@
-
 // Grid Vectors Demo
 
 let GVD_Canvas = document.getElementById("demo_GridVectors");
@@ -13,36 +12,36 @@ function GenerateRandomGridVectorsAndUpdateDOM() {
 
     // Draw Grid Lines
     GVD_Context.beginPath();
-    GVD_Context.moveTo(1 * GVD_Canvas.width/4, 0);
-    GVD_Context.lineTo(1 * GVD_Canvas.width/4, GVD_Canvas.height);
+    GVD_Context.moveTo(1 * GVD_Canvas.width / 4, 0);
+    GVD_Context.lineTo(1 * GVD_Canvas.width / 4, GVD_Canvas.height);
     GVD_Context.stroke();
     GVD_Context.beginPath();
-    GVD_Context.moveTo(2 * GVD_Canvas.width/4, 0);
-    GVD_Context.lineTo(2 * GVD_Canvas.width/4, GVD_Canvas.height);
+    GVD_Context.moveTo(2 * GVD_Canvas.width / 4, 0);
+    GVD_Context.lineTo(2 * GVD_Canvas.width / 4, GVD_Canvas.height);
     GVD_Context.stroke();
     GVD_Context.beginPath();
-    GVD_Context.moveTo(3 * GVD_Canvas.width/4, 0);
-    GVD_Context.lineTo(3 * GVD_Canvas.width/4, GVD_Canvas.height);
+    GVD_Context.moveTo(3 * GVD_Canvas.width / 4, 0);
+    GVD_Context.lineTo(3 * GVD_Canvas.width / 4, GVD_Canvas.height);
     GVD_Context.stroke();
     GVD_Context.beginPath();
-    GVD_Context.moveTo(0, 1 * GVD_Canvas.width/4);
-    GVD_Context.lineTo(GVD_Canvas.width, 1 * GVD_Canvas.width/4);
+    GVD_Context.moveTo(0, 1 * GVD_Canvas.width / 4);
+    GVD_Context.lineTo(GVD_Canvas.width, 1 * GVD_Canvas.width / 4);
     GVD_Context.stroke();
     GVD_Context.beginPath();
-    GVD_Context.moveTo(0, 2 * GVD_Canvas.width/4);
-    GVD_Context.lineTo(GVD_Canvas.width, 2 * GVD_Canvas.width/4);
+    GVD_Context.moveTo(0, 2 * GVD_Canvas.width / 4);
+    GVD_Context.lineTo(GVD_Canvas.width, 2 * GVD_Canvas.width / 4);
     GVD_Context.stroke();
     GVD_Context.beginPath();
-    GVD_Context.moveTo(0, 3 * GVD_Canvas.width/4);
-    GVD_Context.lineTo(GVD_Canvas.width, 3 * GVD_Canvas.width/4);
+    GVD_Context.moveTo(0, 3 * GVD_Canvas.width / 4);
+    GVD_Context.lineTo(GVD_Canvas.width, 3 * GVD_Canvas.width / 4);
     GVD_Context.stroke();
 
 
     GVD_Context.strokeStyle = "#ff0000";
     GVD_Context.lineWidth = 3;
 
-    for (let x = 128; x < 512; x+=128) {
-        for (let y = 128; y < 512; y+=128) {
+    for (let x = 128; x < 512; x += 128) {
+        for (let y = 128; y < 512; y += 128) {
             // Calculate a random grid vector
             let rand_vect = perlin.rand_vect();
             let xEnd = x + (rand_vect.x * 128);
@@ -65,7 +64,7 @@ GenerateRandomGridVectorsAndUpdateDOM();
 
 let toggleProgress = document.getElementById("toggleSectionComplete");
 
-toggleProgress.addEventListener("change", ()=> {
+toggleProgress.addEventListener("change", () => {
     let complete = toggleProgress.checked;
     MarkSectionProgress("GridVectors", complete);
 })

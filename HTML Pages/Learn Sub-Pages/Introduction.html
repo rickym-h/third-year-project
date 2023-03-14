@@ -1,96 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Introduction</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../w3styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-  <style>
-    body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
-  </style>
-  <script src="../../Perlin.js" defer></script>
-  <script src="../../DemoSetup/DemoHelperFunctions.js" defer></script>
-  <script src="../../DemoSetup/SetupNoiseDemo.js" defer></script>
+    <title>Introduction</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../w3styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+    </style>
+    <script defer src="../../Perlin.js"></script>
+    <script defer src="../../DemoSetup/DemoHelperFunctions.js"></script>
+    <script defer src="../../DemoSetup/SetupNoiseDemo.js"></script>
 </head>
 <body>
 
 
 <!-- Links (sit on top) -->
 <div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s2">
-      <a href="../../index.html" class="w3-button w3-block w3-black">HOME</a>
+    <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../../index.html">HOME</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../learn.html">LEARN</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../demos.html">DEMOS</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../pseudocode.html">PSEUDOCODE</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../TestYourself.html">TEST YOURSELF</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="../Quiz.html">QUIZ</a>
+        </div>
     </div>
-    <div class="w3-col s2">
-      <a href="../learn.html" class="w3-button w3-block w3-black">LEARN</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../demos.html" class="w3-button w3-block w3-black">DEMOS</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../pseudocode.html" class="w3-button w3-block w3-black">PSEUDOCODE</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../TestYourself.html" class="w3-button w3-block w3-black">TEST YOURSELF</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="../Quiz.html" class="w3-button w3-block w3-black">QUIZ</a>
-    </div>
-  </div>
 </div>
 
 
 <div class="w3-sand w3-grayscale w3-large">
 
-  <div class="w3-container" id="about">
-    <div class="w3-content" style="max-width:700px">
-      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INTRODUCTION</span></h5>
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INTRODUCTION</span></h5>
 
-      <p>Perlin Noise is procedural, deterministic, seeded, and can be expanded to an arbitrary number of dimensions.</p>
-      <p>Procedural - The data is generated, meaning it was not created by a person. It is generated through code.</p>
-      <p>Deterministic - Although generated through code and is seemingly random, the data can be repeatable if the starting conditions are the same. This means you can generate the same values again if you want to.</p>
-      <p>Seeded - This is what actually makes the randomness deterministic. You can provide a ‘seed’ - usually a number of some kind, which will then be used to generate the noise. If the same number is used again in the future, the exact same set of numbers will be generated!</p>
-      <p>Dimensions - The dimensions basically mean how many directions are the numbers  generated in? In 1-D the numbers can go left and right. In 2-D the numbers can go left, right, up and down. Perlin noise however can be applied to any number of dimensions; 3-D, 4-D, even 100-D if you wanted to!</p>
+            <p>Perlin Noise is procedural, deterministic, seeded, and can be expanded to an arbitrary number of
+                dimensions.</p>
+            <p>Procedural - The data is generated, meaning it was not created by a person. It is generated through
+                code.</p>
+            <p>Deterministic - Although generated through code and is seemingly random, the data can be repeatable if
+                the starting conditions are the same. This means you can generate the same values again if you want
+                to.</p>
+            <p>Seeded - This is what actually makes the randomness deterministic. You can provide a ‘seed’ - usually a
+                number of some kind, which will then be used to generate the noise. If the same number is used again in
+                the future, the exact same set of numbers will be generated!</p>
+            <p>Dimensions - The dimensions basically mean how many directions are the numbers generated in? In 1-D the
+                numbers can go left and right. In 2-D the numbers can go left, right, up and down. Perlin noise however
+                can be applied to any number of dimensions; 3-D, 4-D, even 100-D if you wanted to!</p>
 
-      <div class="DemoHolder">
-        <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE DEMO</span></h5>
-        <button id="demo_2DPerlin:GenerateNoise">Generate Noise</button>
-        <canvas id='demo_2DPerlin' width="512" height="512"></canvas>
-      </div>
+            <div class="DemoHolder">
+                <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE DEMO</span></h5>
+                <button id="demo_2DPerlin:GenerateNoise">Generate Noise</button>
+                <canvas height="512" id='demo_2DPerlin' width="512"></canvas>
+            </div>
 
 
-      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW DOES IT WORK?</span></h5>
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW DOES IT WORK?</span></h5>
 
-      <p>There are four main steps to generating Perlin Noise, which must be applied one after the other. Some different implementations might do some parts slightly differently, depending on the use case of the noise, but we will talk about these later.</p>
-      <p>The main parts are Generating Grid Vectors, Creating Candidate Point Vectors, Calculating Dot Products, and finally Interpolation.</p>
+            <p>There are four main steps to generating Perlin Noise, which must be applied one after the other. Some
+                different implementations might do some parts slightly differently, depending on the use case of the
+                noise, but we will talk about these later.</p>
+            <p>The main parts are Generating Grid Vectors, Creating Candidate Point Vectors, Calculating Dot Products,
+                and finally Interpolation.</p>
 
 
+            <label class="toggle">
+                <input class="toggle-checkbox" id="toggleSectionComplete" type="checkbox">
+                <div class="toggle-switch"></div>
+                <span class="toggle-label">Mark Section Complete!</span>
+            </label>
 
+        </div>
 
-      <label class="toggle">
-        <input class="toggle-checkbox" type="checkbox" id="toggleSectionComplete">
-        <div class="toggle-switch"></div>
-        <span class="toggle-label">Mark Section Complete!</span>
-      </label>
 
     </div>
 
 
-  </div>
-
-
-
-
-  <!-- End page content -->
+    <!-- End page content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
+    <p>Created by <a class="w3-hover-text-green" href="https://github.com/rickym-h" target="_blank" title="W3.CSS">Richard
+        Hull</a></p>
 </footer>
 
 

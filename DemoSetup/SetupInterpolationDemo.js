@@ -22,7 +22,7 @@ UpdateInterpolationDemo();
 
 let toggleProgress = document.getElementById("toggleSectionComplete");
 
-toggleProgress.addEventListener("change", ()=> {
+toggleProgress.addEventListener("change", () => {
     let complete = toggleProgress.checked;
     MarkSectionProgress("Interpolation", complete);
 })

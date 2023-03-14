@@ -1,110 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Perlin Noise</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="w3styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-  <style>
-    body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
+    <title>Perlin Noise</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="w3styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
 
-    .bgimg {
-      background-position: center;
-      background-size: cover;
-      background-image: url("mountian-image.jpg");
-      min-height: 75%;
-    }
+        .bgimg {
+            background-position: center;
+            background-size: cover;
+            background-image: url("mountian-image.jpg");
+            min-height: 75%;
+        }
 
-    /*.menu {*/
-    /*  display: none;*/
-    /*}*/
-  </style>
+        /*.menu {*/
+        /*  display: none;*/
+        /*}*/
+    </style>
 </head>
 <body>
 
 <!-- Links (sit on top) -->
 <div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s2">
-      <a href="index.html" class="w3-button w3-block w3-black">HOME</a>
+    <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="index.html">HOME</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="HTML%20Pages/learn.html">LEARN</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="HTML%20Pages/demos.html">DEMOS</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="HTML%20Pages/pseudocode.html">PSEUDOCODE</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="HTML%20Pages/TestYourself.html">TEST YOURSELF</a>
+        </div>
+        <div class="w3-col s2">
+            <a class="w3-button w3-block w3-black" href="HTML%20Pages/Quiz.html">QUIZ</a>
+        </div>
     </div>
-    <div class="w3-col s2">
-      <a href="HTML%20Pages/learn.html" class="w3-button w3-block w3-black">LEARN</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="HTML%20Pages/demos.html" class="w3-button w3-block w3-black">DEMOS</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="HTML%20Pages/pseudocode.html" class="w3-button w3-block w3-black">PSEUDOCODE</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="HTML%20Pages/TestYourself.html" class="w3-button w3-block w3-black">TEST YOURSELF</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="HTML%20Pages/Quiz.html" class="w3-button w3-block w3-black">QUIZ</a>
-    </div>
-  </div>
 </div>
 
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-middle w3-center">
-    <span class="w3-text-white" style="font-size:90px">Perlin Noise</span>
-  </div>
+    <div class="w3-display-middle w3-center">
+        <span class="w3-text-white" style="font-size:90px">Perlin Noise</span>
+    </div>
 </header>
 
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
 
-  <!-- About Container -->
-  <div class="w3-container" id="about">
-    <div class="w3-content" style="max-width:700px">
-      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">WHAT IS PERLIN NOISE?</span></h5>
-      <p>Perlin Noise is essentially an algorithm to generate lots of random numbers which are close together - to form a gradient of sorts. You’ve probably seen a gradient before, maybe in a Powerpoint slide or as the background of a webpage; it’s basically something that transitions between two colours.</p>
-      <p>We call this gradient ‘noise’, and it can affect our data in ways which seem organic. The numbers by themselves might look a little meaningless and useless, but we can apply these numbers to do many interesting things, such as procedurally creating patterned textures for materials like marble, or creating clouds, or for creating entire landscapes!</p>
-      <p>This website will walk you through the process of creating this Perlin Noise to use yourself for your own projects, with the primary example of creating the heightmap for some terrain.</p>
-      <p>LEARN</p>
-<!--      <div class="w3-panel w3-leftbar w3-light-grey">-->
-<!--        <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>-->
-<!--        <p>Chef, Coffeeist and Owner: Liam Brown</p>-->
-<!--      </div>-->
-<!--      <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>-->
-<!--      <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>-->
+    <!-- About Container -->
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">WHAT IS PERLIN NOISE?</span></h5>
+            <p>Perlin Noise is essentially an algorithm to generate lots of random numbers which are close together - to
+                form a gradient of sorts. You’ve probably seen a gradient before, maybe in a Powerpoint slide or as the
+                background of a webpage; it’s basically something that transitions between two colours.</p>
+            <p>We call this gradient ‘noise’, and it can affect our data in ways which seem organic. The numbers by
+                themselves might look a little meaningless and useless, but we can apply these numbers to do many
+                interesting things, such as procedurally creating patterned textures for materials like marble, or
+                creating clouds, or for creating entire landscapes!</p>
+            <p>This website will walk you through the process of creating this Perlin Noise to use yourself for your own
+                projects, with the primary example of creating the heightmap for some terrain.</p>
+            <p>LEARN</p>
+            <!--      <div class="w3-panel w3-leftbar w3-light-grey">-->
+            <!--        <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>-->
+            <!--        <p>Chef, Coffeeist and Owner: Liam Brown</p>-->
+            <!--      </div>-->
+            <!--      <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>-->
+            <!--      <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>-->
+        </div>
     </div>
-  </div>
 
 
-  <!-- End page content -->
+    <!-- End page content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>Created by <a href="https://github.com/rickym-h" title="W3.CSS" target="_blank" class="w3-hover-text-green">Richard Hull</a></p>
+    <p>Created by <a class="w3-hover-text-green" href="https://github.com/rickym-h" target="_blank" title="W3.CSS">Richard
+        Hull</a></p>
 </footer>
 
 <script>
-  let key = [0,0,0].join(",")
-  let map = new Map()
-  if (map.has(key)) {
-    console.log("found...")
-    console.log(map.get(key))
-  } else {
-    console.log("updatign map with key: " + key)
-    map.set(key, 41)
-  }
+    let key = [0, 0, 0].join(",")
+    let map = new Map()
+    if (map.has(key)) {
+        console.log("found...")
+        console.log(map.get(key))
+    } else {
+        console.log("updatign map with key: " + key)
+        map.set(key, 41)
+    }
 
 
-  if (map.has(key)) {
-    console.log("found...")
-    console.log(map.get(key))
-  } else {
-    console.log("updatign map with key: " + key)
-    map.set(key, 41)
-  }
+    if (map.has(key)) {
+        console.log("found...")
+        console.log(map.get(key))
+    } else {
+        console.log("updatign map with key: " + key)
+        map.set(key, 41)
+    }
 </script>
 
 

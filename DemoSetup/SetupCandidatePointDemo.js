@@ -17,8 +17,8 @@ function GenerateCandidateVectorsAndUpdateDOM(x, y) {
     CPV_Context.fillRect(0, 0, CPV_Canvas.width, CPV_Canvas.height)
     CPV_Context.fillStyle = "#ff0000";
     CPV_Context.fillRect(
-        x-10,
-        y-10,
+        x - 10,
+        y - 10,
         20,
         20
     );
@@ -41,8 +41,8 @@ function GenerateCandidateVectorsAndUpdateDOM(x, y) {
     CPV_Context.stroke();
 
     // Calculate the data to show to the user
-    x = Math.round(x*1000 / CPV_Canvas.width)/1000;
-    y = Math.round(y*1000 / CPV_Canvas.height)/1000;
+    x = Math.round(x * 1000 / CPV_Canvas.width) / 1000;
+    y = Math.round(y * 1000 / CPV_Canvas.height) / 1000;
     let span = document.getElementById("demo_CandidatePointVectors:PointCoord");
     span.innerHTML = "(" + x + ", " + y + ")"
 
@@ -52,41 +52,42 @@ function GenerateCandidateVectorsAndUpdateDOM(x, y) {
     v1 = x;
     v2 = -y;
     span = document.getElementById("demo_CandidatePointVectors:A")
-    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+    span.innerHTML = "(" + v1 + ", " + v2 + ")"
 
     // B
     v1 = -x;
     v2 = -y;
     span = document.getElementById("demo_CandidatePointVectors:B")
-    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+    span.innerHTML = "(" + v1 + ", " + v2 + ")"
 
     // C
     v1 = x;
     v2 = y;
     span = document.getElementById("demo_CandidatePointVectors:C")
-    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+    span.innerHTML = "(" + v1 + ", " + v2 + ")"
 
     // D
     v1 = -x;
     v2 = y;
     span = document.getElementById("demo_CandidatePointVectors:D")
-    span.innerHTML ="(" + v1+ ", " + v2 + ")"
+    span.innerHTML = "(" + v1 + ", " + v2 + ")"
 }
+
 CPV_Canvas.addEventListener('mousedown', (e) => {
     CPVDemoClicked(CPV_Canvas, e)
 })
 
 button = document.getElementById("demo_CandidatePointVectors:PickCoord");
 button.addEventListener("click", () => {
-    let x = 512 * Math.round(Math.random() * 100)/100
-    let y = 512 * Math.round(Math.random() * 100)/100
+    let x = 512 * Math.round(Math.random() * 100) / 100
+    let y = 512 * Math.round(Math.random() * 100) / 100
     GenerateCandidateVectorsAndUpdateDOM(x, y)
 })
 
 
 let toggleProgress = document.getElementById("toggleSectionComplete");
 
-toggleProgress.addEventListener("change", ()=> {
+toggleProgress.addEventListener("change", () => {
     let complete = toggleProgress.checked;
     MarkSectionProgress("CandidatePointVectors", complete);
 })

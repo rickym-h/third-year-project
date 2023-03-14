@@ -16,26 +16,23 @@ demo_final_CellCountSlider.oninput = function () {
 
 let demo_final_CellResSlider = document.getElementById("demo_final:CellResSlider");
 let demo_final_CellResValue = document.getElementById("demo_final:CellResValue");
-demo_final_CellResValue.innerHTML = Math.pow(2, parseInt(demo_final_CellResSlider.value)+1).toString();
+demo_final_CellResValue.innerHTML = Math.pow(2, parseInt(demo_final_CellResSlider.value) + 1).toString();
 demo_final_CellResSlider.oninput = function () {
-    demo_final_CellResValue.innerHTML = Math.pow(2, parseInt(this.value)+1).toString();
+    demo_final_CellResValue.innerHTML = Math.pow(2, parseInt(this.value) + 1).toString();
 }
 
 let button = document.getElementById("demo_final:GenerateHeightMap");
 button.addEventListener("click", function () {
     let ShowGrid = document.querySelector("#demo_final_ShowGrid").checked;
-    FillCanvasWithHeightMap("demo_final", demo_final_CellCountSlider.value, Math.pow(2, parseInt(demo_final_CellResSlider.value)+1), demo_final_OctaveSlider.value, ShowGrid)
+    FillCanvasWithHeightMap("demo_final", demo_final_CellCountSlider.value, Math.pow(2, parseInt(demo_final_CellResSlider.value) + 1), demo_final_OctaveSlider.value, ShowGrid)
 })
 let ShowGrid = document.querySelector("#demo_final_ShowGrid").checked;
-FillCanvasWithHeightMap("demo_final", demo_final_CellCountSlider.value, Math.pow(2, parseInt(demo_final_CellResSlider.value)+1), demo_final_OctaveSlider.value, ShowGrid)
-
-
-
+FillCanvasWithHeightMap("demo_final", demo_final_CellCountSlider.value, Math.pow(2, parseInt(demo_final_CellResSlider.value) + 1), demo_final_OctaveSlider.value, ShowGrid)
 
 
 let toggleProgress = document.getElementById("toggleSectionComplete");
 
-toggleProgress.addEventListener("change", ()=> {
+toggleProgress.addEventListener("change", () => {
     let complete = toggleProgress.checked;
     MarkSectionProgress("FractalNoise", complete);
 })
