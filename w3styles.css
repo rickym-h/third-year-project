@@ -1828,7 +1828,7 @@ input[type='number'] {
 .complete-indicator {
     width: 30%;
     height: 80%;
-    background-color: green;
+    background-color: forestgreen;
     border-radius: 5px;
 
     display: flex;
@@ -1838,7 +1838,7 @@ input[type='number'] {
 }
 
 .incomplete-indicator {
-    background-color: red;
+    background-color: darkorange;
 }
 
 tr {
@@ -1928,4 +1928,11 @@ body {
     margin-left: 5px;
     position: relative;
     top: 2px;
+}
+
+.endOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
