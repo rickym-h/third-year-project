@@ -48,7 +48,7 @@ function GenerateRandomGridVectorsAndUpdateDOM() {
             let xEnd = x + (rand_vect.x * 128);
             let yEnd = y + (rand_vect.y * 128);
 
-            canvas_arrow(GVD_Context, x, y, xEnd, yEnd)
+            DrawCanvasArrow(GVD_Context, x, y, xEnd, yEnd)
         }
     }
 

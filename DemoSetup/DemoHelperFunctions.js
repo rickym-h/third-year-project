@@ -112,17 +112,18 @@ function FillCanvasWithHeightMap(canvasID, GridSize, PixelsPerGridCell, OctaveCo
     }
 }
 
-function canvas_arrow(context, fromx, fromy, tox, toy) {
-    let headlen = 10; // length of head in pixels
-    let dx = tox - fromx;
-    let dy = toy - fromy;
-    let angle = Math.atan2(dy, dx);
+// When given a canvas and two co-ordinates, will draw an arrow on that canvas.
+function DrawCanvasArrow(context, xStart, yStart, xEnd, yEnd) {
+    let HeadLength = 10; // length of head in pixels
+    let xMagnitude = xEnd - xStart;
+    let yMagnitude = yEnd - yStart;
+    let angle = Math.atan2(yMagnitude, xMagnitude);
     context.beginPath()
-    context.moveTo(fromx, fromy);
-    context.lineTo(tox, toy);
-    context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
-    context.moveTo(tox, toy);
-    context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+    context.moveTo(xStart, yStart);
+    context.lineTo(xEnd, yEnd);
+    context.lineTo(xEnd - HeadLength * Math.cos(angle - Math.PI / 6), yEnd - HeadLength * Math.sin(angle - Math.PI / 6));
+    context.moveTo(xEnd, yEnd);
+    context.lineTo(xEnd - HeadLength * Math.cos(angle + Math.PI / 6), yEnd - HeadLength * Math.sin(angle + Math.PI / 6));
     context.stroke();
 }
 

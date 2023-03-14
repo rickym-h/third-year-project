@@ -42,13 +42,13 @@ function UpdateDotProductDemo() {
     // Draw Vector A and B
     DP_Context.strokeStyle = "#ff0000";
     DP_Context.lineWidth = 3;
-    canvas_arrow(DP_Context,
+    DrawCanvasArrow(DP_Context,
         (DP_Canvas.width/2),
         (DP_Canvas.width/2),
         (Ax + 1)*256,
         (Ay + 1)*256
     )
-    canvas_arrow(DP_Context,
+    DrawCanvasArrow(DP_Context,
         (DP_Canvas.width/2),
         (DP_Canvas.width/2),
         (Bx+1)*(DP_Canvas.width/2),
