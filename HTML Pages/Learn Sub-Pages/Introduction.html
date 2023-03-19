@@ -50,19 +50,21 @@
         <div class="w3-content" style="max-width:700px">
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INTRODUCTION</span></h5>
 
-            <p>Perlin Noise is procedural, deterministic, seeded, and can be expanded to an arbitrary number of
+            <p>Perlin Noise is a set of data, which is procedural, deterministic, seeded, and can be expanded to an arbitrary number of
                 dimensions.</p>
-            <p>Procedural - The data is generated, meaning it was not created by a person. It is generated through
+            <p><b>Procedural</b> - The data is generated, meaning it was not created manually by a person. It is generated using
                 code.</p>
-            <p>Deterministic - Although generated through code and is seemingly random, the data can be repeatable if
-                the starting conditions are the same. This means you can generate the same values again if you want
-                to.</p>
-            <p>Seeded - This is what actually makes the randomness deterministic. You can provide a ‘seed’ - usually a
+            <p><b>Deterministic</b> - Although generated through code and is seemingly random, the data can be repeatable if
+                the starting conditions are the same. This means you can generate the same set of values again if you want
+                to - using a 'seed'.</p>
+            <p><b>Seeded</b> - This is what actually makes the randomness deterministic. You can provide a ‘seed’ - usually a
                 number of some kind, which will then be used to generate the noise. If the same number is used again in
                 the future, the exact same set of numbers will be generated!</p>
-            <p>Dimensions - The dimensions basically mean how many directions are the numbers generated in? In 1-D the
-                numbers can go left and right. In 2-D the numbers can go left, right, up and down. Perlin noise however
+            <p><b>Dimensions</b> - The dimensions basically mean how many directions are the numbers generated in. In 1-D the
+                numbers can go left and right (like a number line). In 2-D the numbers can go left, right, up and down (like a number for every point on a flat surface). Perlin noise however
                 can be applied to any number of dimensions; 3-D, 4-D, even 100-D if you wanted to!</p>
+
+            <p>Have a look at what raw Perlin Noise looks like below! This is noise in 2 dimensions (x and y dimension), where each value is mapped to an intensity for the pixel (where large numbers are close to white, and small numbers are close to black).</p>
 
             <div class="DemoHolder" id="demo">
                 <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">NOISE DEMO</span></h5>
@@ -76,8 +78,11 @@
             <p>There are four main steps to generating Perlin Noise, which must be applied one after the other. Some
                 different implementations might do some parts slightly differently, depending on the use case of the
                 noise, but we will talk about these later.</p>
-            <p>The main parts are Generating Grid Vectors, Creating Candidate Point Vectors, Calculating Dot Products,
-                and finally Interpolation.</p>
+            <p>The main parts are:</p>
+            <p>&nbsp 1: Generating Grid Vectors</p>
+            <p>&nbsp 2: Creating Candidate Point Vectors</p>
+            <p>&nbsp 3: Calculating Dot Products</p>
+            <p>&nbsp 4: Interpolation</p>
 
             <div class="endOptions">
                 <label class="toggle">

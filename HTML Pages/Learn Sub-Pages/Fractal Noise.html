@@ -51,10 +51,8 @@
 
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">HOW TO MAKE "REALISTIC" TERRAIN</span></h5>
-            <p>Now, that is everything you need to know to make Perlin Noise! But... that doesn't look like any
-                realistic terrain now does it?... </p>
             <p>What we have made so far looks too 'blobby'. It might be good for something like animating the bobbing of
-                a floating balloon, or as the 2D map of a cartoon sideslipping car game. However, it is too smooth. It
+                a floating balloon, or as the ground for a cartoon side-scrolling driving game. However, it is too smooth. It
                 doesn't look like what we might want to make some realistic cloud textures, or a high resolution 3D
                 terrain map.</p>
 
@@ -65,12 +63,12 @@
             <p>However, we are not just limited to two octaves! We can go as far as we want, but of course every time we
                 need an extra layer, it takes more time to compute and the level of added detail is halved.</p>
 
-
+            <p><b>WARNING</b> - Using the maximum values for these sliders can take a long time to generate the noise. Try it out with lower values and slowly increase the sliders!</p>
             <div class="DemoHolder" id="demo">
                 <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">FINAL FRACTAL DEMO</span></h5>
                 <table class="optionContainer">
                     <tr class="optionSlider">
-                        <td><label class="optionLegend" for="demo_final:OctaveSlider">Octave: <span
+                        <td><label class="optionLegend" for="demo_final:OctaveSlider">Octaves: <span
                                 id="demo_final:OctaveValue"></span></label></td>
                         <td><input class="slider" id="demo_final:OctaveSlider" max="5" min="1" type="range" value="3">
                         </td>
@@ -88,7 +86,7 @@
                         </td>
                     </tr>
                     <tr class="optionSlider">
-                        <td><label class="optionLegend" for="demo_final_ShowGrid">Show Grid: <span
+                        <td><label class="optionLegend" for="demo_final_ShowGrid">Show Grid Cells: <span
                                 id="demo_final:ShowGridValue"></span></label></td>
                         <td><input checked id="demo_final_ShowGrid" type="checkbox"></td>
                     </tr>

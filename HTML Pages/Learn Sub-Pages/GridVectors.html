@@ -51,14 +51,14 @@
 
             <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">GRID VECTORS</span></h5>
             <p>The first step is to create a grid of vectors, where each vector points in a random direction. A vector
-                is basically an arrow with a magnitude (length) and a direction. The important thing about these vectors
-                though, is that they must all have a magnitude of 1. This is what we call a ‘normalised’ vector, where
-                the length is ‘unit length’.</p>
-            <p>For our example of generating a 2D heightmap, you might imagine the vectors as arrows with a length of 1,
+                is basically an arrow with a magnitude (length) and a direction(angle).
+            </p>
+            <p> The important thing about these vectors is that they must all have a magnitude of 1. This is what we call a ‘normalised’, or 'unit-length' vector, where
+                the length has a magnitude of 1.</p>
+            <p>In our example of generating a 2D heightmap, you can imagine the vectors as arrows with a length of 1,
                 pointing in any direction in a circle (360 degrees). This grid must be a lower resolution than the final
                 perlin noise wanted. For example if you wanted some Perlin Noise to fill a 1000x1000 grid, you might
                 only have a 50x50 grid of vectors. This ratio would be adjusted depending on the use case.</p>
-            <p>[demo for grid vectors]</p>
 
             <div class="DemoHolder" id="demo">
                 <h5 class="w3-center w3-padding-16"><span class="w3-tag w3-wide">GRID VECTORS DEMO</span></h5>

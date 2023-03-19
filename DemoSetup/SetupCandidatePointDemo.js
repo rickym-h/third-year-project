@@ -13,32 +13,21 @@ function CPVDemoClicked(canvas, event) {
 }
 
 function GenerateCandidateVectorsAndUpdateDOM(x, y) {
+    // Fill background
     CPV_Context.fillStyle = "#808080";
     CPV_Context.fillRect(0, 0, CPV_Canvas.width, CPV_Canvas.height)
-    CPV_Context.fillStyle = "#ff0000";
-    CPV_Context.fillRect(
-        x - 10,
-        y - 10,
-        20,
-        20
-    );
 
+    // Draw the candidate point vectors
+    DrawCanvasArrow(CPV_Context, 0,0,x,y);
+    DrawCanvasArrow(CPV_Context, CPV_Canvas.width,0,x,y);
+    DrawCanvasArrow(CPV_Context, 0,CPV_Canvas.height,x,y);
+    DrawCanvasArrow(CPV_Context, CPV_Canvas.width,CPV_Canvas.height,x,y);
+
+    // Draw the red dot at the candidate point
     CPV_Context.beginPath();
-    CPV_Context.moveTo(0, 0);
-    CPV_Context.lineTo(x, y);
-    CPV_Context.stroke();
-    CPV_Context.beginPath();
-    CPV_Context.moveTo(CPV_Canvas.width, 0);
-    CPV_Context.lineTo(x, y);
-    CPV_Context.stroke();
-    CPV_Context.beginPath();
-    CPV_Context.moveTo(0, CPV_Canvas.height);
-    CPV_Context.lineTo(x, y);
-    CPV_Context.stroke();
-    CPV_Context.beginPath();
-    CPV_Context.moveTo(CPV_Canvas.width, CPV_Canvas.height);
-    CPV_Context.lineTo(x, y);
-    CPV_Context.stroke();
+    CPV_Context.arc(x, y, 3, 0, 2 * Math.PI, false);
+    CPV_Context.fillStyle = "#ff0000";
+    CPV_Context.fill();
 
     // Calculate the data to show to the user
     x = Math.round(x * 1000 / CPV_Canvas.width) / 1000;
